@@ -66,7 +66,7 @@ const SkillsSection = () => {
       title: "Ferramentas & Tech",
       icon: Wrench,
       color: "from-cyan-500 to-teal-500",
-      skills: ["Git/GitHub", "Postman", "Insomnia", "Vite"],
+      skills: ["Git/GitHub", "Postman", "Figma", "Vite", "ESLint", "Prettier"],
     },
   ];
 
