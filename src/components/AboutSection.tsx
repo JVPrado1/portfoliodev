@@ -86,7 +86,7 @@ const AboutSection = () => {
             </div>
 
             <motion.a
-              href="/portfoliodev/curriculo-joao.pdf"
+              href="/curriculo-joao.pdf"
               download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

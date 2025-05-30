@@ -35,7 +35,7 @@ const Navigation = () => {
             className="text-2xl font-bold text-white"
           >
             <img
-              src="/portfoliodev/prado-lettering.svg"
+              src="/prado-lettering.svg"
               alt="Logo João Victor Prado"
               className="h-35 w-auto text-white brightness-0 invert"
             />

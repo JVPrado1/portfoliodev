@@ -26,7 +26,7 @@ const HeroSection = () => {
             <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 p-1">
               <div className="w-full h-full rounded-full bg-slate-900 overflow-hidden relative">
                 <img
-                  src="/portfoliodev/perfil-joao.webp"
+                  src="/perfil-joao.webp"
                   alt="João"
                   className="w-full h-full object-cover scale-100 transform translate-x-1 translate-y-0"
                 />
@@ -78,7 +78,7 @@ const HeroSection = () => {
               <span>Ver Meus Projetos</span>
             </motion.button>
             <motion.a
-              href="/portfoliodev/curriculo-joao.pdf"
+              href="/curriculo-joao.pdf"
               download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
