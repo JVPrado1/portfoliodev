@@ -103,7 +103,7 @@ const ProjectsSection = () => {
       category: "logica",
       technologies: ["Scratch"],
       github: "https://github.com",
-      demo: "https://demo.com",
+      demo: "scratch.mit.edu/projects/1122699936/",
       featured: false,
     },
   ];
@@ -166,8 +166,8 @@ const ProjectsSection = () => {
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Alguns dos meus trabalhos mais recentes que demonstram minhas
-            habilidades e criatividade
+            Confira alguns dos meus projetos mais recentes que demonstram minhas
+            habilidades e meus conhecimentos.
           </p>
         </motion.div>
 
