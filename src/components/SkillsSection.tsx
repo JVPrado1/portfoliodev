@@ -4,7 +4,6 @@ import {
   Code,
   Database,
   Server,
-  Palette,
   Cloud,
   Smartphone,
   Wrench,

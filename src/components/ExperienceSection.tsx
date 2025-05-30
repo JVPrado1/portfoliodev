@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Calendar,
-  MapPin,
-  Building,
-  ArrowRight,
-  GraduationCap,
-} from "lucide-react";
+import { Calendar, MapPin, Building, GraduationCap } from "lucide-react";
 
 const ExperienceSection = () => {
   const [ref, inView] = useInView({
@@ -223,7 +217,7 @@ const ExperienceSection = () => {
               {/* Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500"></div>
 
-              {experiences.map((exp, index) => (
+              {experiences.map((exp) => (
                 <motion.div
                   key={exp.id}
                   variants={itemVariants}
