@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen pt-[60px] flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen md:pt-[60px] pt-[80px] flex items-center justify-center relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
@@ -94,7 +94,7 @@ const HeroSection = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="flex justify-center space-x-6 mb-16"
+            className="flex justify-center space-x-6 md:mb-16 mb-12"
           >
             {[
               {
@@ -131,7 +131,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.3 }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center md:mb-16 mb-4"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
