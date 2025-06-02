@@ -2,7 +2,6 @@
 
 > Portfólio pessoal moderno e responsivo desenvolvido com React, TypeScript e TailwindCSS
 
-![Portfólio Preview](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 ![React](https://img.shields.io/badge/React-19.0.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0.6-green)
@@ -90,16 +89,3 @@ vite-project/
 - 💼 [LinkedIn](https://www.linkedin.com/in/jvprado1/)
 - 🐙 [GitHub](https://github.com/JVPrado1/)
 - 📧 [Email](mailto:jv_prado@outlook.com)
-- 🌐 [Portfólio](https://seu-portfolio.vercel.app)
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-⭐ **Se este projeto te ajudou, considere dar uma estrela!**
-
----
-
-_Desenvolvido com ❤️ por João Victor Prado_

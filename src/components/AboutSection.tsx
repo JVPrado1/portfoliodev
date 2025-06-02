@@ -43,9 +43,9 @@ const AboutSection = () => {
     >
       <div className="container flex flex-col mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -59,9 +59,9 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 flex-start ">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="text-2xl text-left font-bold text-white mb-7 ">
               Breve resumo
@@ -85,38 +85,33 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <motion.a
+            <a
               href="/curriculo-joao.pdf"
               download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 inline-block text-center cursor-pointer"
+              className="mt-8 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-200 inline-block text-center cursor-pointer hover:scale-[1.02]"
             >
               Download CV
-            </motion.a>
+            </a>
           </motion.div>
 
           {/* Technologies */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold text-white mb-8 text-left">
               Principais Tecnologias
             </h3>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {technologies.map((tech, index) => (
-                <motion.div
+                <div
                   key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10 hover:bg-white/10 transition-all duration-300 group "
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10 hover:bg-white/10 transition-all duration-200 group"
                 >
                   <div className="flex justify-center mb-3">
                     <div
-                      className={`p-2 bg-gradient-to-r ${tech.color} rounded-full group-hover:scale-110 transition-transform duration-300`}
+                      className={`p-2 bg-gradient-to-r ${tech.color} rounded-full group-hover:scale-110 transition-transform duration-200`}
                     >
                       <tech.icon className="text-white" size={24} />
                     </div>
@@ -124,7 +119,7 @@ const AboutSection = () => {
                   <div className="text-white font-semibold text-xs">
                     {tech.name}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>

@@ -131,18 +131,18 @@ const ProjectsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
       },
     },
   };
@@ -155,9 +155,9 @@ const ProjectsSection = () => {
     >
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -174,18 +174,16 @@ const ProjectsSection = () => {
 
         {/* Filter Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {filters.map((filter) => (
-            <motion.button
+            <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer ${
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-200 cursor-pointer hover:scale-[1.02] ${
                 activeFilter === filter.id
                   ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25"
                   : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
@@ -193,7 +191,7 @@ const ProjectsSection = () => {
             >
               <filter.icon size={18} />
               <span>{filter.label}</span>
-            </motion.button>
+            </button>
           ))}
         </motion.div>
 
@@ -202,134 +200,120 @@ const ProjectsSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
         >
           {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
-              layout
-              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-full"
+              className="group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-200 flex flex-col h-full"
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative overflow-hidden h-48">
                 <img
-                  src={project.image}
+                  src={`/${project.image}`}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                {/* Overlay Actions */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  {project.demo === "https://demo.com" ? (
-                    <div className="p-3 bg-white/10 rounded-full text-gray-500 cursor-not-allowed">
-                      <ExternalLink size={20} />
-                    </div>
-                  ) : (
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
-                    >
-                      <ExternalLink size={20} />
-                    </motion.a>
-                  )}
-
-                  {project.github === "https://github.com" ? (
-                    <div className="p-3 bg-white/10 rounded-full text-gray-500 cursor-not-allowed">
-                      <Github size={20} />
-                    </div>
-                  ) : (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-300 cursor-pointer"
-                    >
-                      <Github size={20} />
-                    </motion.a>
-                  )}
-                </div>
-
-                {/* Featured Badge */}
                 {project.featured && (
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs font-semibold rounded-full">
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     Destaque
                   </div>
                 )}
-
-                {/* Development Status Badge */}
-                {project.status === "development" && (
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-orange-600 to-red-600 text-white text-xs font-semibold rounded-full">
-                    Em desenvolvimento
-                  </div>
-                )}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center space-x-4">
+                  {project.github !== "https://github.com" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-200 cursor-pointer"
+                    >
+                      <Github size={20} />
+                    </a>
+                  )}
+                  {(project.demo !== "https://demo.com" ||
+                    project.demo.includes("github.io") ||
+                    project.demo.includes("scratch.mit.edu") ||
+                    project.demo.includes("trackbytrack")) && (
+                    <a
+                      href={
+                        project.demo.startsWith("scratch.mit.edu")
+                          ? `https://${project.demo}`
+                          : project.demo
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-200 cursor-pointer"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
 
               {/* Project Content */}
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                {/* Status Badge */}
+                {project.status && (
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs font-semibold">
+                      Em Desenvolvimento
+                    </span>
+                  </div>
+                )}
+
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-200">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed flex-grow">
                   {project.description}
                 </p>
 
-                {/* Technologies - Always at bottom */}
-                <div className="mt-auto">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
+                {/* Technologies */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
                       <span
-                        key={tech}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-full text-xs text-white font-medium"
+                        key={index}
+                        className="px-2 py-1 bg-white/10 text-gray-300 rounded-lg text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  {/* Action Links - Always at bottom */}
-                  <div className="flex space-x-4">
-                    {project.demo === "https://demo.com" ? (
-                      <span className="flex items-center space-x-2 text-gray-500 font-medium text-sm">
-                        <ExternalLink size={16} />
-                        <span>Em breve</span>
-                      </span>
-                    ) : (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-300 font-medium text-sm cursor-pointer"
-                      >
-                        <ExternalLink size={16} />
-                        <span>Demo</span>
-                      </a>
-                    )}
-
-                    {project.github === "https://github.com" ? (
-                      <span className="flex items-center space-x-2 text-gray-500 font-medium text-sm">
-                        <Github size={16} />
-                        <span>Indisponível</span>
-                      </span>
-                    ) : (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm cursor-pointer"
-                      >
-                        <Github size={16} />
-                        <span>Código</span>
-                      </a>
-                    )}
-                  </div>
+                {/* Links */}
+                <div className="flex space-x-4 mt-auto">
+                  {project.github !== "https://github.com" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
+                    >
+                      <Github size={16} />
+                      <span>Código</span>
+                    </a>
+                  )}
+                  {(project.demo !== "https://demo.com" ||
+                    project.demo.includes("github.io") ||
+                    project.demo.includes("scratch.mit.edu") ||
+                    project.demo.includes("trackbytrack")) && (
+                    <a
+                      href={
+                        project.demo.startsWith("scratch.mit.edu")
+                          ? `https://${project.demo}`
+                          : project.demo
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer"
+                    >
+                      <ExternalLink size={16} />
+                      <span>Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -338,26 +322,20 @@ const ProjectsSection = () => {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center"
         >
-          <p className="text-gray-300 mb-6">
-            Gostou dos meus projetos? Vamos conversar sobre o seu próximo
-            projeto!
-          </p>
-          <motion.a
-            href="https://wa.me/5514997295849"
+          <a
+            href="https://github.com/JVPrado1"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02]"
           >
-            <MessageCircle size={20} />
-            <span>Fale comigo</span>
-          </motion.a>
+            <Github size={20} />
+            <span>Ver mais no GitHub</span>
+          </a>
         </motion.div>
       </div>
     </section>

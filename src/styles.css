@@ -5,6 +5,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Prevent double-tap zoom on mobile */
+* {
+  touch-action: manipulation;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

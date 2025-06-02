@@ -62,9 +62,9 @@ const ContactSection = () => {
     >
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -83,9 +83,9 @@ const ContactSection = () => {
         <div className="flex justify-center">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="max-w-2xl w-full"
           >
             <div className="space-y-6 mb-8">
@@ -94,17 +94,14 @@ const ContactSection = () => {
                 const emailInfo = contactInfo[0];
                 const EmailIcon = emailInfo.icon;
                 return (
-                  <motion.a
+                  <a
                     href={emailInfo.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 group cursor-pointer"
+                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-200 group cursor-pointer"
                   >
                     <div
-                      className={`p-3 bg-gradient-to-r ${emailInfo.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300`}
+                      className={`p-3 bg-gradient-to-r ${emailInfo.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}
                     >
                       <EmailIcon className="text-white" size={24} />
                     </div>
@@ -114,25 +111,22 @@ const ContactSection = () => {
                       </h4>
                       <p className="text-gray-300">{emailInfo.value}</p>
                     </div>
-                  </motion.a>
+                  </a>
                 );
               })()}
 
               {/* Localização e WhatsApp - mesma linha */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {contactInfo.slice(1).map((info, index) => (
-                  <motion.a
+                  <a
                     key={info.title}
                     href={info.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 group cursor-pointer"
+                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-200 group cursor-pointer"
                   >
                     <div
-                      className={`p-3 bg-gradient-to-r ${info.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300`}
+                      className={`p-3 bg-gradient-to-r ${info.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}
                     >
                       <info.icon className="text-white" size={24} />
                     </div>
@@ -140,33 +134,29 @@ const ContactSection = () => {
                       <h4 className="text-white font-semibold">{info.title}</h4>
                       <p className="text-gray-300">{info.value}</p>
                     </div>
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>
 
             {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center"
             >
               <div className="flex justify-center space-x-4">
                 {socialLinks.map((social, index) => (
-                  <motion.a
+                  <a
                     key={social.name}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    className={`p-4 bg-white/10 rounded-full text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/20 cursor-pointer`}
+                    className={`p-4 bg-white/10 rounded-full text-gray-300 ${social.color} transition-all duration-200 hover:bg-white/20 cursor-pointer hover:scale-110`}
                   >
                     <social.icon size={24} />
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </motion.div>
@@ -175,9 +165,9 @@ const ContactSection = () => {
 
         {/* Footer */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-16 pt-8 border-t flex justify-center items-center border-white/10"
         >
           <p className="text-gray-400 mb-4">
