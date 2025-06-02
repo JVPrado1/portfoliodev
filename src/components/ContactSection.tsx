@@ -117,7 +117,7 @@ const ContactSection = () => {
 
               {/* Localização e WhatsApp - mesma linha */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {contactInfo.slice(1).map((info, index) => (
+                {contactInfo.slice(1).map((info, _) => (
                   <a
                     key={info.title}
                     href={info.href}
@@ -147,7 +147,7 @@ const ContactSection = () => {
               className="text-center"
             >
               <div className="flex justify-center space-x-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social, _) => (
                   <a
                     key={social.name}
                     href={social.href}

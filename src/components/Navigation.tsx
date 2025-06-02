@@ -93,7 +93,7 @@ const Navigation = () => {
           >
             <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-6">
               <div className="space-y-3">
-                {navItems.map((item, index) => (
+                {navItems.map((item, _) => (
                   <a
                     key={item.href}
                     href={item.href}

@@ -117,7 +117,7 @@ const SkillsSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {skillCategories.map((category, categoryIndex) => (
+          {skillCategories.map((category, _) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
@@ -137,7 +137,7 @@ const SkillsSection = () => {
 
               {/* Skills Grid */}
               <div className="grid grid-cols-2 gap-3">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill, _) => (
                   <div
                     key={skill}
                     className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-purple-500/30 hover:bg-white/10 transition-all duration-200 group"
@@ -180,7 +180,7 @@ const SkillsSection = () => {
               "Proatividade",
               "Clean Code",
               "SEO",
-            ].map((skill, index) => (
+            ].map((skill, _) => (
               <div
                 key={skill}
                 className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-purple-500 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-blue-600/20 transition-all duration-200"

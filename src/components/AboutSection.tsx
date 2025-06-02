@@ -104,7 +104,7 @@ const AboutSection = () => {
               Principais Tecnologias
             </h3>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {technologies.map((tech, index) => (
+              {technologies.map((tech, _) => (
                 <div
                   key={tech.name}
                   className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10 hover:bg-white/10 transition-all duration-200 group"
