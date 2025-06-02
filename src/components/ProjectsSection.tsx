@@ -8,6 +8,7 @@ import {
   Smartphone,
   Globe,
   Brain,
+  MessageCircle,
 } from "lucide-react";
 
 const ProjectsSection = () => {
@@ -346,13 +347,17 @@ const ProjectsSection = () => {
             Gostou dos meus projetos? Vamos conversar sobre o seu próximo
             projeto!
           </p>
-          <motion.button
+          <motion.a
+            href="https://wa.me/5514997295849"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
           >
-            Iniciar Projeto
-          </motion.button>
+            <MessageCircle size={20} />
+            <span>Fale comigo</span>
+          </motion.a>
         </motion.div>
       </div>
     </section>
