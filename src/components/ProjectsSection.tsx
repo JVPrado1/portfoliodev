@@ -40,6 +40,18 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
+      title: "Banda Plano Marshall",
+      description:
+        "Landing page desenvolvida para a banda Plano Marshall, desenvolvida com Astro, TypeScript e Tailwind CSS.",
+      image: "plano-marshall.webp",
+      category: "web",
+      technologies: ["Astro", "TypeScript", "Tailwind CSS"],
+      github: "https://github.com/JVPrado1/bandaplanomarshall",
+      demo: "https://bandaplanomarshall.com.br",
+      featured: true,
+    },
+    {
+      id: 3,
       title: "Conservatório Jauense de Música",
       description:
         "Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.",
@@ -51,7 +63,7 @@ const ProjectsSection = () => {
       featured: true,
     },
     {
-      id: 3,
+      id: 4,
       title: "Profi",
       description:
         "Aplicativo e webapp para professores particulares gerenciarem alunos, horários, pagamentos e rendimentos de forma integrada e simplificada.",
@@ -70,7 +82,7 @@ const ProjectsSection = () => {
       status: "development",
     },
     {
-      id: 4,
+      id: 5,
       title: "uTeach",
       description:
         "Estudo de landing page responsiva utilizando HTML e CSS puro.",
@@ -82,7 +94,7 @@ const ProjectsSection = () => {
       featured: false,
     },
     {
-      id: 5,
+      id: 6,
       title: "Pedra, papel e tesoura",
       description:
         "Jogo clássico de pedra, papel e tesoura desenvolvido com HTML, CSS e JavaScript puro. Implementa lógica de pontuação, animações suaves e design responsivo como projeto prático do currículo do Odin Project.",
@@ -94,7 +106,7 @@ const ProjectsSection = () => {
       featured: false,
     },
     {
-      id: 6,
+      id: 7,
       title: "Projeto Scratch - CS50x",
       description:
         "Projeto Scratch desenvolvido como parte do curso CS50x de Harvard, um curso de introdução à ciência da computação com foco em lógica e programação.",
@@ -105,18 +117,6 @@ const ProjectsSection = () => {
       github: "https://github.com",
       demo: "scratch.mit.edu/projects/1122699936/",
       featured: false,
-    },
-    {
-      id: 7,
-      title: "Banda Plano Marshall",
-      description:
-        "Landing page desenvolvida para a banda Plano Marshall, desenvolvida com Astro, TypeScript e Tailwind CSS.",
-      image: "plano-marshall.webp",
-      category: "web  ",
-      technologies: ["Astro", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/JVPrado1/bandaplanomarshall",
-      demo: "https://bandaplanomarshall.vercel.app/",
-      featured: true,
     },
   ];
 
