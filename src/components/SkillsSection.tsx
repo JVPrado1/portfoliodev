@@ -15,11 +15,9 @@ import {
   FaNodeJs,
   FaPython,
   FaDocker,
-  FaGitAlt,
   FaFigma,
   FaLinux,
   FaHtml5,
-  FaCss3Alt,
   FaJs,
 } from "react-icons/fa";
 import {

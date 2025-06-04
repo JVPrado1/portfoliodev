@@ -56,8 +56,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 md:mb-12 mb-8 max-w-3xl mx-auto"
           >
-            Desenvolvedor Full Stack em constante evolução. Gosto de conhecer
-            novas tecnologias e transformar ideias em aplicações funcionais!
+            Professor que virou dev (ou dev que nunca deixou de ser professor).
+            Transformo ideias em código.
           </motion.p>
 
           {/* CTA Buttons */}
