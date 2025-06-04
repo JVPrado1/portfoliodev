@@ -215,7 +215,12 @@ const ExperienceSection = () => {
               className="relative"
             >
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-sky-500"></div>
+              <motion.div
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={inView ? { opacity: 1, scaleY: 1 } : {}}
+                transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-sky-500 origin-top"
+              ></motion.div>
 
               {experiences.map((exp) => (
                 <motion.div
@@ -224,13 +229,16 @@ const ExperienceSection = () => {
                   className="relative pl-20 pb-12 last:pb-0"
                 >
                   {/* Timeline Dot */}
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + exp.id * 0.1 }}
                     className={`absolute left-6 w-4 h-4 rounded-full border-4 ${
                       exp.current
                         ? "bg-emerald-500 border-emerald-300 shadow-lg shadow-emerald-500/50"
                         : "bg-gray-600 border-gray-400"
                     }`}
-                  ></div>
+                  ></motion.div>
 
                   {/* Content */}
                   <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
