@@ -25,6 +25,20 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Função para navegação com offset
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      const offsetTop =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 60; // 100px de offset para compensar o header
+      window.scrollTo({
+        top: offsetTop - offset,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const navItems = [
     { href: "#inicio", label: "Início", icon: Home },
     { href: "#sobre", label: "Sobre", icon: User },
@@ -61,9 +75,9 @@ const Navigation = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-2">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.button
                   key={item.href}
-                  href={item.href}
+                  onClick={() => scrollToSection(item.href)}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -76,7 +90,7 @@ const Navigation = () => {
                   <span className="group-hover:text-emerald-400 transition-colors duration-200">
                     {item.label}
                   </span>
-                </motion.a>
+                </motion.button>
               ))}
             </div>
 
@@ -116,18 +130,20 @@ const Navigation = () => {
             <div className="bg-gray-800/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-6">
               <div className="space-y-3">
                 {navItems.map((item, _) => (
-                  <a
+                  <button
                     key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center space-x-3 p-3 rounded-lg text-white hover:bg-white/10 transition-all duration-200 group cursor-pointer select-none"
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      setIsOpen(false);
+                    }}
+                    className="flex items-center space-x-3 p-3 rounded-lg text-white hover:bg-white/10 transition-all duration-200 group cursor-pointer select-none w-full text-left"
                     style={{ touchAction: "manipulation" }}
                   >
                     <div className="p-2 bg-gradient-to-r from-emerald-600 to-sky-600 rounded-lg group-hover:scale-105 transition-transform duration-200">
                       <item.icon size={18} className="text-white" />
                     </div>
                     <span className="font-medium">{item.label}</span>
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>

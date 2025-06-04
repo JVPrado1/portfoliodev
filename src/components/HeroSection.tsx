@@ -6,7 +6,16 @@ const HeroSection = () => {
     <section
       id="inicio"
       className="h-screen w-full flex items-center justify-center relative overflow-hidden pt-16"
+      style={{
+        backgroundImage: "url('/teste.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
+      {/* Overlay escuro para manter legibilidade */}
+      <div className="absolute inset-0 bg-black/90 z-0"></div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center">
           {/* Profile Image */}
