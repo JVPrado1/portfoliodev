@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState, useRef } from "react";
 import {
   Code,
   Database,
@@ -7,6 +8,8 @@ import {
   Cloud,
   Smartphone,
   Wrench,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const SkillsSection = () => {
@@ -14,6 +17,11 @@ const SkillsSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselRef = useRef(null);
+  const startX = useRef(0);
+  const isDragging = useRef(false);
 
   const skillCategories = [
     {
@@ -69,6 +77,46 @@ const SkillsSection = () => {
     },
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % skillCategories.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + skillCategories.length) % skillCategories.length
+    );
+  };
+
+  // Touch handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+    isDragging.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!startX.current) return;
+    isDragging.current = true;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!startX.current || !isDragging.current) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX.current - endX;
+
+    // Minimum swipe distance
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide(); // Swipe left - next slide
+      } else {
+        prevSlide(); // Swipe right - previous slide
+      }
+    }
+
+    startX.current = 0;
+    isDragging.current = false;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,17 +158,18 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
+        {/* Desktop Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {skillCategories.map((category, _) => (
+          {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-200"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-200 h-80 flex flex-col"
             >
               {/* Category Header */}
               <div className="flex items-center mb-6">
@@ -135,7 +184,7 @@ const SkillsSection = () => {
               </div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 flex-1 content-start">
                 {category.skills.map((skill, _) => (
                   <div
                     key={skill}
@@ -153,6 +202,83 @@ const SkillsSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <div className="relative">
+            {/* Card Container */}
+            <div
+              className="overflow-hidden"
+              ref={carouselRef}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <motion.div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {skillCategories.map((category, index) => (
+                  <div
+                    key={category.title}
+                    className="w-full flex-shrink-0 px-2"
+                  >
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-80 flex flex-col">
+                      {/* Category Header */}
+                      <div className="flex items-center mb-6">
+                        <div
+                          className={`p-3 bg-gradient-to-r ${category.color} rounded-lg mr-4`}
+                        >
+                          <category.icon className="text-white" size={24} />
+                        </div>
+                        <h3 className="text-xl font-bold text-white">
+                          {category.title}
+                        </h3>
+                      </div>
+
+                      {/* Skills Grid */}
+                      <div className="grid grid-cols-2 gap-3 flex-1 content-start">
+                        {category.skills.map((skill, _) => (
+                          <div
+                            key={skill}
+                            className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10"
+                          >
+                            <div
+                              className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70`}
+                            ></div>
+                            <span className="text-gray-300 font-medium text-sm">
+                              {skill}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {skillCategories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  index === currentSlide
+                    ? "bg-emerald-400 w-6"
+                    : "bg-white/30 hover:bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Swipe Instruction */}
+          <p className="text-center text-gray-400 text-sm mt-4">
+            Deslize para navegar
+          </p>
+        </div>
 
         {/* Additional Skills */}
         <motion.div

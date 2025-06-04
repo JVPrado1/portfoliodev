@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -17,6 +17,10 @@ const ProjectsSection = () => {
   });
 
   const [activeFilter, setActiveFilter] = useState("todos");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselRef = useRef(null);
+  const startX = useRef(0);
+  const isDragging = useRef(false);
 
   const projects = [
     {
@@ -137,6 +141,52 @@ const ProjectsSection = () => {
           )
         : projects.filter((project) => project.category === activeFilter);
 
+  // Touch handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+    isDragging.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!startX.current) return;
+    isDragging.current = true;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!startX.current || !isDragging.current) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX.current - endX;
+
+    // Minimum swipe distance
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide(); // Swipe left - next slide
+      } else {
+        prevSlide(); // Swipe right - previous slide
+      }
+    }
+
+    startX.current = 0;
+    isDragging.current = false;
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length
+    );
+  };
+
+  // Reset slide when filter changes
+  const handleFilterChange = (filterId: string) => {
+    setActiveFilter(filterId);
+    setCurrentSlide(0);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -189,7 +239,7 @@ const ProjectsSection = () => {
           {filters.map((filter) => (
             <button
               key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
+              onClick={() => handleFilterChange(filter.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-200 cursor-pointer hover:scale-[1.02] ${
                 activeFilter === filter.id
                   ? "bg-gradient-to-r from-emerald-600 to-sky-600 text-white shadow-lg shadow-emerald-500/25"
@@ -202,12 +252,12 @@ const ProjectsSection = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Desktop Projects Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
         >
           {filteredProjects.map((project) => (
             <motion.div
@@ -216,11 +266,11 @@ const ProjectsSection = () => {
               className="group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all duration-200 flex flex-col h-full"
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden h-48">
+              <div className="relative overflow-hidden h-48 flex-shrink-0">
                 <img
                   src={`/${project.image}`}
                   alt={project.title}
-                  className="w-full h-full object-cover scale-100 transition-transform duration-200 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                 />
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -228,16 +278,6 @@ const ProjectsSection = () => {
                   </div>
                 )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center space-x-4">
-                  {project.github !== "https://github.com" && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-200 cursor-pointer"
-                    >
-                      <Github size={20} />
-                    </a>
-                  )}
                   {(project.demo !== "https://demo.com" ||
                     project.demo.includes("github.io") ||
                     project.demo.includes("scratch.mit.edu") ||
@@ -254,6 +294,16 @@ const ProjectsSection = () => {
                     >
                       <ExternalLink size={16} />
                       <span>Acessar</span>
+                    </a>
+                  )}
+                  {project.github !== "https://github.com" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-200 cursor-pointer"
+                    >
+                      <Github size={20} />
                     </a>
                   )}
                 </div>
@@ -327,6 +377,137 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Mobile Projects Carousel */}
+        <div className="md:hidden mb-12">
+          {filteredProjects.length > 0 ? (
+            <div className="relative">
+              {/* Card Container */}
+              <div
+                className="overflow-hidden"
+                ref={carouselRef}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                <motion.div
+                  className="flex transition-transform duration-300 ease-in-out items-start"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {filteredProjects.map((project) => (
+                    <div key={project.id} className="w-full flex-shrink-0 px-2">
+                      <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 flex flex-col">
+                        {/* Project Image */}
+                        <div className="relative overflow-hidden h-48 flex-shrink-0">
+                          <img
+                            src={`/${project.image}`}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                          />
+                          {project.featured && (
+                            <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                              Destaque
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Project Content */}
+                        <div className="p-6 flex flex-col flex-grow">
+                          {/* Status Badge */}
+                          {project.status && (
+                            <div className="mb-3">
+                              <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs font-semibold">
+                                Em Desenvolvimento
+                              </span>
+                            </div>
+                          )}
+
+                          <h3 className="text-xl font-bold text-white mb-2">
+                            {project.title}
+                          </h3>
+                          <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                            {project.description}
+                          </p>
+
+                          {/* Technologies */}
+                          <div className="mb-4">
+                            <div className="flex flex-wrap gap-2">
+                              {project.technologies.map((tech, _) => (
+                                <span
+                                  key={_}
+                                  className="px-2 py-1 bg-white/10 text-gray-300 rounded-lg text-xs font-medium"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Links */}
+                          <div className="flex space-x-4 mt-auto">
+                            {(project.demo !== "https://demo.com" ||
+                              project.demo.includes("github.io") ||
+                              project.demo.includes("scratch.mit.edu") ||
+                              project.demo.includes("trackbytrack")) && (
+                              <a
+                                href={
+                                  project.demo.startsWith("scratch.mit.edu")
+                                    ? `https://${project.demo}`
+                                    : project.demo
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
+                              >
+                                <ExternalLink size={16} />
+                                <span>Acessar</span>
+                              </a>
+                            )}
+                            {project.github !== "https://github.com" && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center space-x-2 text-sky-400 hover:text-sky-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
+                              >
+                                <Github size={16} />
+                                <span>Código</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {filteredProjects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentSlide
+                        ? "bg-emerald-400 w-6"
+                        : "bg-white/30 hover:bg-white/50"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Swipe Instruction */}
+              <p className="text-center text-gray-400 text-sm mt-4">
+                Deslize para navegar
+              </p>
+            </div>
+          ) : (
+            <div className="text-center text-gray-400 py-8">
+              <p>Nenhum projeto encontrado para este filtro.</p>
+            </div>
+          )}
+        </div>
 
         {/* CTA */}
         <motion.div
