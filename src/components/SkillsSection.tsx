@@ -9,6 +9,39 @@ import {
   Smartphone,
   Wrench,
 } from "lucide-react";
+// Ícones específicos das tecnologias
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaDocker,
+  FaGitAlt,
+  FaFigma,
+  FaLinux,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiAstro,
+  SiTypescript,
+  SiTailwindcss,
+  SiExpress,
+  SiFastify,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiAmazonwebservices,
+  SiReact,
+  SiGithub,
+  SiPostman,
+  SiVite,
+  SiEslint,
+  SiPrettier,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { MdSecurity } from "react-icons/md";
 
 const SkillsSection = () => {
   const [ref, inView] = useInView({
@@ -20,6 +53,36 @@ const SkillsSection = () => {
   const carouselRef = useRef(null);
   const startX = useRef(0);
   const isDragging = useRef(false);
+
+  // Mapeamento de skills para ícones específicos das tecnologias
+  const skillIcons: { [key: string]: any } = {
+    React: FaReact,
+    "Next.js": SiNextdotjs,
+    Astro: SiAstro,
+    TypeScript: SiTypescript,
+    "Tailwind CSS": SiTailwindcss,
+    "JavaScript ES6+": FaJs,
+    "HTML5 & CSS3": FaHtml5,
+    "Node.js": FaNodeJs,
+    Python: FaPython,
+    "Express.js": SiExpress,
+    Fastify: SiFastify,
+    "API REST": TbApi,
+    "JWT & Auth": MdSecurity,
+    MongoDB: SiMongodb,
+    PostgreSQL: SiPostgresql,
+    MySQL: SiMysql,
+    AWS: SiAmazonwebservices,
+    Docker: FaDocker,
+    Linux: FaLinux,
+    "React Native": SiReact,
+    "Git/GitHub": SiGithub,
+    Postman: SiPostman,
+    Figma: FaFigma,
+    Vite: SiVite,
+    ESLint: SiEslint,
+    Prettier: SiPrettier,
+  };
 
   const skillCategories = [
     {
@@ -167,7 +230,7 @@ const SkillsSection = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-200 h-60 flex flex-col"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-200 flex flex-col"
             >
               {/* Category Header */}
               <div className="flex items-center mb-4">
@@ -182,20 +245,48 @@ const SkillsSection = () => {
               </div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 gap-2 flex-1 content-start">
-                {category.skills.map((skill, _) => (
-                  <div
-                    key={skill}
-                    className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-emerald-500/30 hover:bg-white/10 transition-all duration-200 group"
-                  >
+              <div className="grid grid-cols-2 gap-2">
+                {category.skills.map((skill, _) => {
+                  const SkillIcon = skillIcons[skill] || Code;
+                  // Mapeamento de cores do gradiente para cores sólidas para os ícones
+                  const getIconColor = (colorClass: string) => {
+                    if (colorClass.includes("emerald"))
+                      return "text-emerald-400";
+                    if (colorClass.includes("sky")) return "text-sky-400";
+                    if (colorClass.includes("green")) return "text-green-400";
+                    if (
+                      colorClass.includes("orange") ||
+                      colorClass.includes("red")
+                    )
+                      return "text-orange-400";
+                    if (
+                      colorClass.includes("indigo") ||
+                      colorClass.includes("blue")
+                    )
+                      return "text-blue-400";
+                    if (
+                      colorClass.includes("cyan") ||
+                      colorClass.includes("teal")
+                    )
+                      return "text-cyan-400";
+                    return "text-white";
+                  };
+
+                  return (
                     <div
-                      className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-200`}
-                    ></div>
-                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors duration-200 text-xs">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+                      key={skill}
+                      className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-emerald-500/30 hover:bg-white/10 transition-all duration-200 group h-10"
+                    >
+                      <SkillIcon
+                        size={16}
+                        className={`mr-2 opacity-80 group-hover:opacity-100 transition-all duration-200 ${getIconColor(category.color)} group-hover:scale-110 flex-shrink-0`}
+                      />
+                      <span className="text-gray-300 font-medium group-hover:text-white transition-colors duration-200 text-sm leading-tight">
+                        {skill}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
@@ -221,7 +312,7 @@ const SkillsSection = () => {
                     key={category.title}
                     className="w-full flex-shrink-0 px-2"
                   >
-                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 h-60 flex flex-col">
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 flex flex-col h-72">
                       {/* Category Header */}
                       <div className="flex items-center mb-4">
                         <div
@@ -235,20 +326,50 @@ const SkillsSection = () => {
                       </div>
 
                       {/* Skills Grid */}
-                      <div className="grid grid-cols-2 gap-2 flex-1 content-start">
-                        {category.skills.map((skill, _) => (
-                          <div
-                            key={skill}
-                            className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10"
-                          >
+                      <div className="grid grid-cols-2 gap-2">
+                        {category.skills.map((skill, _) => {
+                          const SkillIcon = skillIcons[skill] || Code;
+                          // Mapeamento de cores do gradiente para cores sólidas para os ícones
+                          const getIconColor = (colorClass: string) => {
+                            if (colorClass.includes("emerald"))
+                              return "text-emerald-400";
+                            if (colorClass.includes("sky"))
+                              return "text-sky-400";
+                            if (colorClass.includes("green"))
+                              return "text-green-400";
+                            if (
+                              colorClass.includes("orange") ||
+                              colorClass.includes("red")
+                            )
+                              return "text-orange-400";
+                            if (
+                              colorClass.includes("indigo") ||
+                              colorClass.includes("blue")
+                            )
+                              return "text-blue-400";
+                            if (
+                              colorClass.includes("cyan") ||
+                              colorClass.includes("teal")
+                            )
+                              return "text-cyan-400";
+                            return "text-white";
+                          };
+
+                          return (
                             <div
-                              className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70`}
-                            ></div>
-                            <span className="text-gray-300 font-medium text-xs">
-                              {skill}
-                            </span>
-                          </div>
-                        ))}
+                              key={skill}
+                              className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 h-10"
+                            >
+                              <SkillIcon
+                                size={14}
+                                className={`mr-2 opacity-80 transition-opacity duration-200 ${getIconColor(category.color)} flex-shrink-0`}
+                              />
+                              <span className="text-gray-300 font-medium text-xs leading-tight">
+                                {skill}
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
