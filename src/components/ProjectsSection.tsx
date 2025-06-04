@@ -270,7 +270,8 @@ const ProjectsSection = () => {
                 <img
                   src={`/${project.image}`}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-200"
+                  style={{ objectPosition: "top center" }}
                 />
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -402,7 +403,8 @@ const ProjectsSection = () => {
                           <img
                             src={`/${project.image}`}
                             alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                            className="w-full h-full object-cover object-top transition-transform duration-200"
+                            style={{ objectPosition: "top center" }}
                           />
                           {project.featured && (
                             <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
