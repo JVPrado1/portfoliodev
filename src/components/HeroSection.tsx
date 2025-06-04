@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden mt-16"
+      className="h-screen w-full flex items-center justify-center relative overflow-hidden pt-16"
     >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center">
@@ -45,7 +45,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-gray-300 md:mb-12 mb-8 max-w-3xl mx-auto"
           >
             Desenvolvedor Full Stack em constante evolução. Gosto de conhecer
             novas tecnologias e transformar ideias em aplicações funcionais!
@@ -56,10 +56,10 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 w-full max-w-lg mx-auto sm:max-w-none"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center md:mb-16 mb-8 w-full max-w-lg mx-auto sm:max-w-none"
           >
             <button
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 hover:scale-[1.02]"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 hover:scale-[1.02] max-w-[60vw]"
               onClick={() => {
                 document
                   .querySelector("#projetos")
@@ -83,7 +83,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-center space-x-6 md:mb-16 mb-12"
+            className="flex justify-center space-x-6 md:mb-16 mb-0"
           >
             {[
               {
@@ -119,7 +119,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-col items-center md:mb-16 mb-4"
+            className=" flex-col items-center  hidden md:flex"
           >
             <div className="p-2 rounded-full border-2 border-white/30 animate-bounce">
               <ArrowDown className="text-white" size={20} />
