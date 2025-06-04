@@ -137,15 +137,15 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="habilidades" className="py-20" ref={ref}>
+    <section id="habilidades" className="py-16" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center md:mb-16 mb-10"
+          className="text-center md:mb-12 mb-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Minha{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               Stack
@@ -161,37 +161,37 @@ const SkillsSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
+          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {skillCategories.map((category, _) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-200 h-80 flex flex-col"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-200 h-60 flex flex-col"
             >
               {/* Category Header */}
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-4">
                 <div
-                  className={`p-3 bg-gradient-to-r ${category.color} rounded-lg mr-4`}
+                  className={`p-2 bg-gradient-to-r ${category.color} rounded-lg mr-3`}
                 >
-                  <category.icon className="text-white" size={24} />
+                  <category.icon className="text-white" size={20} />
                 </div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-lg font-bold text-white">
                   {category.title}
                 </h3>
               </div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 gap-3 flex-1 content-start">
+              <div className="grid grid-cols-2 gap-2 flex-1 content-start">
                 {category.skills.map((skill, _) => (
                   <div
                     key={skill}
                     className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-emerald-500/30 hover:bg-white/10 transition-all duration-200 group"
                   >
                     <div
-                      className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-200`}
+                      className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-200`}
                     ></div>
-                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors duration-200 text-sm">
+                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors duration-200 text-xs">
                       {skill}
                     </span>
                   </div>
@@ -221,30 +221,30 @@ const SkillsSection = () => {
                     key={category.title}
                     className="w-full flex-shrink-0 px-2"
                   >
-                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-80 flex flex-col">
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 h-60 flex flex-col">
                       {/* Category Header */}
-                      <div className="flex items-center mb-6">
+                      <div className="flex items-center mb-4">
                         <div
-                          className={`p-3 bg-gradient-to-r ${category.color} rounded-lg mr-4`}
+                          className={`p-2 bg-gradient-to-r ${category.color} rounded-lg mr-3`}
                         >
-                          <category.icon className="text-white" size={24} />
+                          <category.icon className="text-white" size={20} />
                         </div>
-                        <h3 className="text-xl font-bold text-white">
+                        <h3 className="text-lg font-bold text-white">
                           {category.title}
                         </h3>
                       </div>
 
                       {/* Skills Grid */}
-                      <div className="grid grid-cols-2 gap-3 flex-1 content-start">
+                      <div className="grid grid-cols-2 gap-2 flex-1 content-start">
                         {category.skills.map((skill, _) => (
                           <div
                             key={skill}
                             className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10"
                           >
                             <div
-                              className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70`}
+                              className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70`}
                             ></div>
-                            <span className="text-gray-300 font-medium text-sm">
+                            <span className="text-gray-300 font-medium text-xs">
                               {skill}
                             </span>
                           </div>
@@ -258,7 +258,7 @@ const SkillsSection = () => {
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className="flex justify-center mt-4 space-x-2">
             {skillCategories.map((_, index) => (
               <button
                 key={index}
@@ -273,7 +273,7 @@ const SkillsSection = () => {
           </div>
 
           {/* Swipe Instruction */}
-          <p className="text-center text-gray-400 text-sm mt-4">
+          <p className="text-center text-gray-400 text-sm mt-3">
             Deslize para navegar
           </p>
         </div>
@@ -283,12 +283,12 @@ const SkillsSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16"
+          className="mt-12"
         >
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">
             Outras competências
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {[
               "Comunicação",
               "Trabalho em Equipe",
@@ -306,7 +306,7 @@ const SkillsSection = () => {
             ].map((skill, _) => (
               <div
                 key={skill}
-                className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-emerald-500 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-sky-600/20 transition-all duration-200"
+                className="px-3 py-1.5 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-emerald-500 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-sky-600/20 transition-all duration-200 text-sm"
               >
                 {skill}
               </div>
