@@ -147,7 +147,7 @@ const ProjectsSection = () => {
     isDragging.current = false;
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (_: React.TouchEvent) => {
     if (!startX.current) return;
     isDragging.current = true;
   };

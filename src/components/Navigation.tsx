@@ -40,7 +40,7 @@ const Navigation = () => {
         className={`fixed inset-x-0 top-0 z-50 ${
           isScrolled
             ? "bg-black/80 backdrop-blur-md border-b border-white/10"
-            : "bg-black/90"
+            : "bg-transparent"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ const Navigation = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-2">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
@@ -67,10 +67,15 @@ const Navigation = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-white/80 hover:text-white transition-colors duration-200 flex items-center space-x-2 hover:scale-105 transform cursor-pointer"
+                  className="text-white/80 hover:text-white transition-all duration-200 flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:scale-105 transform cursor-pointer group"
                 >
-                  <item.icon size={18} />
-                  <span>{item.label}</span>
+                  <item.icon
+                    size={18}
+                    className="group-hover:text-emerald-400 transition-colors duration-200"
+                  />
+                  <span className="group-hover:text-emerald-400 transition-colors duration-200">
+                    {item.label}
+                  </span>
                 </motion.a>
               ))}
             </div>

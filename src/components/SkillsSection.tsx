@@ -8,8 +8,6 @@ import {
   Cloud,
   Smartphone,
   Wrench,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 const SkillsSection = () => {
@@ -93,7 +91,7 @@ const SkillsSection = () => {
     isDragging.current = false;
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (_: React.TouchEvent) => {
     if (!startX.current) return;
     isDragging.current = true;
   };
@@ -165,7 +163,7 @@ const SkillsSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category, _) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
@@ -218,7 +216,7 @@ const SkillsSection = () => {
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {skillCategories.map((category, index) => (
+                {skillCategories.map((category, _) => (
                   <div
                     key={category.title}
                     className="w-full flex-shrink-0 px-2"
