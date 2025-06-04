@@ -50,7 +50,7 @@ const ProjectsSection = () => {
       image: "plano-marshall.webp",
       category: "web",
       technologies: ["Astro", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/JVPrado1/bandaplanomarshall",
+      github: "https://github.com",
       demo: "https://bandaplanomarshall.com.br",
       featured: true,
     },
@@ -215,7 +215,7 @@ const ProjectsSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center md:mb-16 mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Meus{" "}
@@ -270,7 +270,7 @@ const ProjectsSection = () => {
                 <img
                   src={`/${project.image}`}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top transition-transform duration-200"
+                  className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
                   style={{ objectPosition: "top center" }}
                 />
                 {project.featured && (
@@ -403,7 +403,7 @@ const ProjectsSection = () => {
                           <img
                             src={`/${project.image}`}
                             alt={project.title}
-                            className="w-full h-full object-cover object-top transition-transform duration-200"
+                            className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
                             style={{ objectPosition: "top center" }}
                           />
                           {project.featured && (

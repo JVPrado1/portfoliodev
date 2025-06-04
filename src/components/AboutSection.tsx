@@ -42,9 +42,9 @@ const AboutSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center md:mb-12 mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white md:mb-6 mb-0">
             Quem sou{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               eu?
@@ -52,14 +52,15 @@ const AboutSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 flex-start ">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-6"
           >
-            <h3 className="text-2xl text-left font-bold text-white mb-7 ">
+            <h3 className="text-2xl font-bold text-white text-center lg:text-left hidden lg:block">
               Breve resumo
             </h3>
             <div className="space-y-4 text-gray-300 text-lg">
@@ -81,13 +82,15 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <a
-              href="/curriculo-joao.pdf"
-              download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
-              className="mt-8 px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 inline-block text-center cursor-pointer hover:scale-[1.02]"
-            >
-              Download CV
-            </a>
+            <div className="text-center lg:text-left mt-8 lg:mt-0 lg:mb-0 mb-5">
+              <a
+                href="/curriculo-joao.pdf"
+                download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
+                className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 inline-block text-center cursor-pointer hover:scale-[1.02]"
+              >
+                Download CV
+              </a>
+            </div>
           </motion.div>
 
           {/* Technologies */}
@@ -95,11 +98,14 @@ const AboutSection = () => {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-white mb-8 text-left">
+            <h3 className="text-2xl font-bold text-white text-left">
               Principais Tecnologias
             </h3>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+            {/* Desktop Grid */}
+            <div className="hidden lg:grid grid-cols-4 gap-4">
               {technologies.map((tech, _) => (
                 <div
                   key={tech.name}
@@ -111,6 +117,25 @@ const AboutSection = () => {
                     >
                       <tech.icon className="text-white" size={24} />
                     </div>
+                  </div>
+                  <div className="text-white font-semibold text-xs">
+                    {tech.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile List */}
+            <div className="lg:hidden grid grid-cols-2 gap-4">
+              {technologies.map((tech, _) => (
+                <div
+                  key={tech.name}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-3 border border-white/10 hover:bg-white/10 transition-all duration-200 group flex items-center"
+                >
+                  <div
+                    className={`p-2 bg-gradient-to-r ${tech.color} rounded-full mr-3 group-hover:scale-110 transition-transform duration-200 flex-shrink-0`}
+                  >
+                    <tech.icon className="text-white" size={18} />
                   </div>
                   <div className="text-white font-semibold text-xs">
                     {tech.name}

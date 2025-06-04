@@ -145,7 +145,7 @@ const SkillsSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center md:mb-16 mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Minha{" "}
