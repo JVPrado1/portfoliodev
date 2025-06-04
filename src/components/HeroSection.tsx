@@ -5,15 +5,8 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen md:pt-[60px] pt-[80px] flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden mt-16"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-800/20 to-blue-800/20" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center">
           {/* Profile Image */}
@@ -23,8 +16,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-4"
           >
-            <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 p-1">
-              <div className="w-full h-full rounded-full bg-slate-900 overflow-hidden relative">
+            <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-emerald-600 to-sky-600 p-1">
+              <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden relative">
                 <img
                   src="/perfil-joao.webp"
                   alt="João"
@@ -42,7 +35,7 @@ const HeroSection = () => {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Olá, me chamo{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               João!
             </span>
           </motion.h1>
@@ -66,7 +59,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 w-full max-w-lg mx-auto sm:max-w-none"
           >
             <button
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 hover:scale-[1.02]"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 hover:scale-[1.02]"
               onClick={() => {
                 document
                   .querySelector("#projetos")

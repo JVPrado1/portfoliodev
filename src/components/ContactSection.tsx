@@ -15,7 +15,7 @@ const ContactSection = () => {
       title: "Email",
       value: "jv_prado@outlook.com",
       href: "mailto:jv_prado@outlook.com",
-      color: "from-purple-500 to-pink-500",
+      color: "from-emerald-500 to-emerald-600",
     },
     {
       icon: FaWhatsapp,
@@ -29,7 +29,7 @@ const ContactSection = () => {
       title: "Localização",
       value: "Jaú, SP - Brasil",
       href: "https://maps.google.com/?q=Jaú,SP",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-sky-500 to-sky-600",
     },
   ];
 
@@ -38,13 +38,13 @@ const ContactSection = () => {
       icon: Github,
       name: "GitHub",
       href: "https://github.com/JVPrado1/",
-      color: "hover:text-purple-400",
+      color: "hover:text-emerald-400",
     },
     {
       icon: Linkedin,
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/jvprado1/",
-      color: "hover:text-blue-400",
+      color: "hover:text-sky-400",
     },
     {
       icon: Mail,
@@ -55,11 +55,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section
-      id="contato"
-      className="py-20 bg-black/20 backdrop-blur-sm"
-      ref={ref}
-    >
+    <section id="contato" className="py-20 bg-white/5 w-full" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -69,7 +65,7 @@ const ContactSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Vamos{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               conversar?
             </span>
           </h2>
@@ -98,7 +94,7 @@ const ContactSection = () => {
                     href={emailInfo.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-200 group cursor-pointer"
+                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 group cursor-pointer"
                   >
                     <div
                       className={`p-3 bg-gradient-to-r ${emailInfo.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}
@@ -123,7 +119,7 @@ const ContactSection = () => {
                     href={info.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-200 group cursor-pointer"
+                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 group cursor-pointer"
                   >
                     <div
                       className={`p-3 bg-gradient-to-r ${info.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}

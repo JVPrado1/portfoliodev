@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
 
 function Portfolio() {
   return (
-    <div className="relative">
+    <div className="">
       <HeroSection />
       <AboutSection />
       <SkillsSection />

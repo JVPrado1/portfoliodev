@@ -185,7 +185,7 @@ const ExperienceSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Minhas{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               Experiências
             </span>
           </h2>
@@ -204,7 +204,7 @@ const ExperienceSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
-              <Building className="mr-3 text-purple-400" size={28} />
+              <Building className="mr-3 text-emerald-400" size={28} />
               Experiência Profissional
             </motion.h3>
 
@@ -215,7 +215,7 @@ const ExperienceSection = () => {
               className="relative"
             >
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-sky-500"></div>
 
               {experiences.map((exp) => (
                 <motion.div
@@ -227,7 +227,7 @@ const ExperienceSection = () => {
                   <div
                     className={`absolute left-6 w-4 h-4 rounded-full border-4 ${
                       exp.current
-                        ? "bg-purple-500 border-purple-300 shadow-lg shadow-purple-500/50"
+                        ? "bg-emerald-500 border-emerald-300 shadow-lg shadow-emerald-500/50"
                         : "bg-gray-600 border-gray-400"
                     }`}
                   ></div>
@@ -239,12 +239,12 @@ const ExperienceSection = () => {
                         <h4 className="text-xl font-bold text-white mb-1">
                           {exp.title}
                         </h4>
-                        <p className="text-purple-400 font-semibold mb-2">
+                        <p className="text-emerald-400 font-semibold mb-2">
                           {exp.company}
                         </p>
                       </div>
                       {exp.current && (
-                        <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs font-semibold rounded-full">
+                        <span className="px-3 py-1 bg-gradient-to-r from-emerald-600 to-sky-600 text-white text-xs font-semibold rounded-full">
                           Atual
                         </span>
                       )}
@@ -259,7 +259,7 @@ const ExperienceSection = () => {
                         <MapPin size={16} className="mr-2" />
                         {exp.location}
                       </div>
-                      <span className="px-2 py-1 bg-blue-600/20 rounded text-xs">
+                      <span className="px-2 py-1 bg-sky-600/20 rounded text-xs">
                         {exp.type}
                       </span>
                     </div>
@@ -273,7 +273,7 @@ const ExperienceSection = () => {
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-full text-xs text-white font-medium"
+                          className="px-3 py-1 bg-gradient-to-r from-emerald-600/20 to-sky-600/20 border border-emerald-500/30 rounded-full text-xs text-white font-medium"
                         >
                           {tech}
                         </span>
@@ -293,7 +293,7 @@ const ExperienceSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
-              <GraduationCap className="mr-3 text-blue-400" size={28} />
+              <GraduationCap className="mr-3 text-sky-400" size={28} />
               Formação
             </motion.h3>
 
@@ -311,7 +311,7 @@ const ExperienceSection = () => {
                   <h4 className="text-lg font-bold text-white mb-2">
                     {edu.title}
                   </h4>
-                  <p className="text-blue-400 font-semibold mb-2">
+                  <p className="text-sky-400 font-semibold mb-2">
                     {edu.institution}
                   </p>
                   <div className="flex items-center text-sm text-gray-300 mb-3">
@@ -376,20 +376,14 @@ const ExperienceSection = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Português</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/30 rounded-full text-xs text-white font-semibold">
+                    <span className="px-3 py-1 bg-gradient-to-r from-emerald-600/20 to-emerald-600/20 border border-emerald-500/30 rounded-full text-xs text-white font-semibold">
                       Nativo
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Inglês</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-full text-xs text-white font-semibold">
-                      Avançado
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Espanhol</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 border border-yellow-500/30 rounded-full text-xs text-white font-semibold">
-                      Básico
+                    <span className="px-3 py-1 bg-gradient-to-r from-sky-600/20 to-sky-600/20 border border-sky-500/30 rounded-full text-xs text-white font-semibold">
+                      Intermediário
                     </span>
                   </div>
                 </div>

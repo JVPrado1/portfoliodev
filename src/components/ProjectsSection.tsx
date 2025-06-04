@@ -159,11 +159,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section
-      id="projetos"
-      className="py-20 bg-black/20 backdrop-blur-sm"
-      ref={ref}
-    >
+    <section id="projetos" className="py-20 bg-white/5 w-full" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -173,7 +169,7 @@ const ProjectsSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Meus{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               Projetos
             </span>
           </h2>
@@ -196,7 +192,7 @@ const ProjectsSection = () => {
               onClick={() => setActiveFilter(filter.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-200 cursor-pointer hover:scale-[1.02] ${
                 activeFilter === filter.id
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25"
+                  ? "bg-gradient-to-r from-emerald-600 to-sky-600 text-white shadow-lg shadow-emerald-500/25"
                   : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
               }`}
             >
@@ -217,7 +213,7 @@ const ProjectsSection = () => {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className="group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-200 flex flex-col h-full"
+              className="group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all duration-200 flex flex-col h-full"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-48">
@@ -227,7 +223,7 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                 />
                 {project.featured && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     Destaque
                   </div>
                 )}
@@ -254,9 +250,10 @@ const ProjectsSection = () => {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/20 rounded-full text-white hover:bg-white/30 transition-all duration-200 cursor-pointer"
+                      className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                     >
-                      <ExternalLink size={20} />
+                      <ExternalLink size={16} />
+                      <span>Acessar</span>
                     </a>
                   )}
                 </div>
@@ -273,7 +270,7 @@ const ProjectsSection = () => {
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-200">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors duration-200">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed flex-grow">
@@ -296,17 +293,6 @@ const ProjectsSection = () => {
 
                 {/* Links */}
                 <div className="flex space-x-4 mt-auto">
-                  {project.github !== "https://github.com" && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
-                    >
-                      <Github size={16} />
-                      <span>Código</span>
-                    </a>
-                  )}
                   {(project.demo !== "https://demo.com" ||
                     project.demo.includes("github.io") ||
                     project.demo.includes("scratch.mit.edu") ||
@@ -319,10 +305,21 @@ const ProjectsSection = () => {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer"
+                      className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                     >
                       <ExternalLink size={16} />
-                      <span>Demo</span>
+                      <span>Acessar</span>
+                    </a>
+                  )}
+                  {project.github !== "https://github.com" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-sky-400 hover:text-sky-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
+                    >
+                      <Github size={16} />
+                      <span>Código</span>
                     </a>
                   )}
                 </div>
@@ -342,7 +339,7 @@ const ProjectsSection = () => {
             href="https://github.com/JVPrado1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02]"
+            className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02]"
           >
             <Github size={20} />
             <span>Ver mais no GitHub</span>

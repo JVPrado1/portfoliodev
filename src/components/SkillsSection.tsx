@@ -19,7 +19,7 @@ const SkillsSection = () => {
     {
       title: "Frontend",
       icon: Code,
-      color: "from-purple-500 to-pink-500",
+      color: "from-emerald-500 to-emerald-600",
       skills: [
         "React",
         "Next.js",
@@ -33,7 +33,7 @@ const SkillsSection = () => {
     {
       title: "Backend",
       icon: Server,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-sky-500 to-sky-600",
       skills: [
         "Node.js",
         "Python",
@@ -55,7 +55,6 @@ const SkillsSection = () => {
       color: "from-orange-500 to-red-500",
       skills: ["AWS", "Docker", "Linux"],
     },
-
     {
       title: "Mobile",
       icon: Smartphone,
@@ -102,7 +101,7 @@ const SkillsSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Minha{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               Stack
             </span>
           </h2>
@@ -140,7 +139,7 @@ const SkillsSection = () => {
                 {category.skills.map((skill, _) => (
                   <div
                     key={skill}
-                    className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-purple-500/30 hover:bg-white/10 transition-all duration-200 group"
+                    className="flex items-center p-2 bg-white/5 rounded-lg border border-white/10 hover:border-emerald-500/30 hover:bg-white/10 transition-all duration-200 group"
                   >
                     <div
                       className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-200`}
@@ -183,7 +182,7 @@ const SkillsSection = () => {
             ].map((skill, _) => (
               <div
                 key={skill}
-                className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-purple-500 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-blue-600/20 transition-all duration-200"
+                className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-emerald-500 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-sky-600/20 transition-all duration-200"
               >
                 {skill}
               </div>

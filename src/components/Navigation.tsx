@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Menu,
@@ -13,6 +13,17 @@ import {
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { href: "#inicio", label: "Início", icon: Home },
@@ -25,7 +36,13 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 ${
+          isScrolled
+            ? "bg-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-200"
+            : "bg-black/90"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -91,7 +108,7 @@ const Navigation = () => {
             className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[60] md:hidden w-[90vw] max-w-sm"
             style={{ touchAction: "manipulation" }}
           >
-            <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-6">
+            <div className="bg-gray-800/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-6">
               <div className="space-y-3">
                 {navItems.map((item, _) => (
                   <a
@@ -101,7 +118,7 @@ const Navigation = () => {
                     className="flex items-center space-x-3 p-3 rounded-lg text-white hover:bg-white/10 transition-all duration-200 group cursor-pointer select-none"
                     style={{ touchAction: "manipulation" }}
                   >
-                    <div className="p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg group-hover:scale-105 transition-transform duration-200">
+                    <div className="p-2 bg-gradient-to-r from-emerald-600 to-sky-600 rounded-lg group-hover:scale-105 transition-transform duration-200">
                       <item.icon size={18} className="text-white" />
                     </div>
                     <span className="font-medium">{item.label}</span>
