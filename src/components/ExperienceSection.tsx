@@ -188,7 +188,6 @@ const ExperienceSection = () => {
 
   // Função para buscar dados de educação traduzidos
   const getEducationData = (eduId: number) => {
-    const currentLang = i18n.language as "pt" | "en";
     const eduData = t(`experience.educationData.${eduId}`, {
       returnObjects: true,
     }) as any;

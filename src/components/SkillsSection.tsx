@@ -17,8 +17,6 @@ import {
   FaDocker,
   FaFigma,
   FaLinux,
-  FaHtml5,
-  FaJs,
   FaAws,
   FaGitAlt,
 } from "react-icons/fa";
@@ -32,19 +30,14 @@ import {
   SiMongodb,
   SiPostgresql,
   SiMysql,
-  SiAmazonwebservices,
   SiReact,
-  SiGithub,
   SiPostman,
   SiVite,
   SiEslint,
   SiPrettier,
   SiJavascript,
   SiHtml5,
-  SiCss3,
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
-import { MdSecurity } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 
 const SkillsSection = () => {
