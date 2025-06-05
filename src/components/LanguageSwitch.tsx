@@ -11,7 +11,11 @@ const LanguageSwitch = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center space-x-2 px-3 py-2 text-white/80 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 hover:scale-105 transform cursor-pointer group"
+      className="flex items-center space-x-2 px-3 py-2 text-white/80 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 transform cursor-pointer group focus:outline-none focus:ring-0"
+      style={{
+        WebkitTapHighlightColor: "transparent",
+        userSelect: "none",
+      }}
       title={
         i18n.language === "pt" ? "Switch to English" : "Mudar para Português"
       }
@@ -27,6 +31,7 @@ const LanguageSwitch = () => {
           width="20"
           height="14"
           className="rounded-sm shadow-md border border-white/20"
+          draggable={false}
         />
       </div>
       <span className="group-hover:text-emerald-400 transition-colors duration-200 font-medium">
