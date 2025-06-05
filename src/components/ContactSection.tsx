@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, MapPin, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactSection = () => {
@@ -8,16 +8,6 @@ const ContactSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "jv_prado@outlook.com",
-      href: "mailto:jv_prado@outlook.com",
-      color: "from-emerald-500 to-emerald-600",
-    },
-  ];
 
   const socialLinks = [
     {

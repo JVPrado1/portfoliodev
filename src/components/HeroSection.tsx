@@ -41,7 +41,7 @@ const HeroSection = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            className="text-4xl md:text-7xl font-bold text-white mb-6"
           >
             Olá, me chamo{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 md:mb-12 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-2xl text-gray-300 md:mb-12 mb-8 max-w-3xl mx-auto"
           >
             Professor que virou dev (ou dev que nunca deixou de ser professor).
             Transformo ideias em código.
