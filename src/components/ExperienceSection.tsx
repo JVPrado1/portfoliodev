@@ -391,7 +391,7 @@ const ExperienceSection = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Inglês</span>
                     <span className="px-3 py-1 bg-gradient-to-r from-sky-600/20 to-sky-600/20 border border-sky-500/30 rounded-full text-xs text-white font-semibold">
-                      Intermediário
+                      Avançado
                     </span>
                   </div>
                 </div>
