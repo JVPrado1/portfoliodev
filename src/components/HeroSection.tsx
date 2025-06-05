@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-2xl text-gray-300 md:mb-12 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-2xl text-white md:mb-12 mb-8 max-w-3xl mx-auto"
           >
             <p className="mb-1">
               Professor que virou dev (ou dev que nunca deixou de ser
