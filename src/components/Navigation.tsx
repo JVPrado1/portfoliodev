@@ -115,7 +115,7 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/85 backdrop-blur-lg z-[55] md:hidden flex flex-col"
+            className="fixed inset-0 bg-black/75 backdrop-blur-lg z-[55] md:hidden flex flex-col"
           >
             {/* Close Button */}
             <div className="absolute top-4 right-4 z-[70]">
@@ -132,7 +132,7 @@ const Navigation = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
+                transition={{ duration: 0.3, delay: 0.05 }}
                 className="space-y-10 text-center w-full"
               >
                 {/* Navigation Items */}
@@ -141,7 +141,7 @@ const Navigation = () => {
                     key={item.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
+                    transition={{ duration: 0.2, delay: 0.05 + index * 0.05 }}
                     onClick={() => {
                       scrollToSection(item.href);
                       setIsOpen(false);
@@ -157,7 +157,7 @@ const Navigation = () => {
                 <motion.div
                   initial={{ opacity: 0, scaleX: 0 }}
                   animate={{ opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
+                  transition={{ duration: 0.3, delay: 0.35 }}
                   className="mx-8 my-8"
                 >
                   <hr className="border-emerald-400 border-t-2" />
@@ -167,7 +167,7 @@ const Navigation = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.8 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
                   className="pt-4"
                 >
                   <div className="flex justify-center space-x-8">
