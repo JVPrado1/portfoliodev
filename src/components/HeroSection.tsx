@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="h-screen w-full flex items-start  md:items-center justify-center relative overflow-hidden md:pt-16 pt-22"
+      className="h-screen w-full flex items-center justify-center relative overflow-hidden pt-16"
       style={{
         backgroundImage: "url('/teste.jpg')",
         backgroundSize: "cover",
