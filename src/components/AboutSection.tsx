@@ -88,7 +88,7 @@ const AboutSection = () => {
                 download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
                 className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 inline-block text-center cursor-pointer hover:scale-[1.02]"
               >
-                Download CV
+                Baixar CV
               </a>
             </div>
           </motion.div>
