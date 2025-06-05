@@ -17,7 +17,7 @@
   },
   "about": {
     "title": "About",
-    "titleHighlight": "me",
+    "titleHighlight": "Me",
     "briefTitle": "Brief summary",
     "paragraph1": "Full Stack Developer and teacher with experience in Robotics, Digital Education, Music and Arts, combining technology and creativity for a multidisciplinary approach to teaching.",
     "paragraph2": "I work with technologies like React, Node.js, Next.js, Astro, Express for REST APIs, MongoDB/PostgreSQL, TypeScript and TailwindCSS, with flexibility to adapt tools according to project needs.",
@@ -28,7 +28,7 @@
   "skills": {
     "title": "My",
     "titleHighlight": "Skills",
-    "subtitle": "Main technologies and tools I master",
+    "subtitle": "Main technologies and tools I use in development",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -58,7 +58,7 @@
   "projects": {
     "title": "My",
     "titleHighlight": "Projects",
-    "subtitle": "Check out some of my most recent projects that demonstrate my skills and knowledge.",
+    "subtitle": "Check out some of my most recent projects that demonstrate my skills and knowledge",
     "filters": {
       "all": "All",
       "web": "Web",
@@ -182,7 +182,7 @@
   },
   "contact": {
     "title": "Let's",
-    "titleHighlight": "talk",
+    "titleHighlight": "Talk",
     "subtitle": "Have a project in mind? Get in touch!",
     "whatsapp": "Chat on WhatsApp",
     "whatsappMobile": "WhatsApp",

@@ -37,6 +37,7 @@ import {
   SiPrettier,
   SiJavascript,
   SiHtml5,
+  SiFirebase,
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
 
@@ -70,6 +71,7 @@ const SkillsSection = () => {
     MongoDB: SiMongodb,
     PostgreSQL: SiPostgresql,
     MySQL: SiMysql,
+    Firebase: SiFirebase,
     AWS: FaAws,
     Docker: FaDocker,
     Linux: FaLinux,
@@ -114,7 +116,7 @@ const SkillsSection = () => {
       title: t("skills.categories.database"),
       icon: Database,
       color: "from-green-500 to-emerald-500",
-      skills: ["MongoDB", "PostgreSQL", "MySQL"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
     },
     {
       title: t("skills.categories.devops"),

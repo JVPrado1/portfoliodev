@@ -65,7 +65,7 @@ const AboutSection = () => {
             <h3 className="text-2xl font-bold text-white text-center lg:text-left hidden lg:block">
               {t("about.briefTitle")}
             </h3>
-            <div className="space-y-4 text-gray-300 text-lg">
+            <div className="space-y-4 text-gray-300 text-lg lg:text-left text-center">
               <p>{t("about.paragraph1")}</p>
               <p>{t("about.paragraph2")}</p>
               <p>{t("about.paragraph3")}</p>

@@ -51,9 +51,6 @@ const ContactSection = () => {
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             {t("contact.subtitle")}
           </p>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            {t("contact.subtitle2")}
-          </p>
         </motion.div>
 
         <div className="flex justify-center">

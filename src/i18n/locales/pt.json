@@ -17,7 +17,7 @@
   },
   "about": {
     "title": "Sobre",
-    "titleHighlight": "mim",
+    "titleHighlight": "Mim",
     "briefTitle": "Breve resumo",
     "paragraph1": "Desenvolvedor Full Stack e professor com experiência em Robótica, Educação Digital, Música e Arte, unindo tecnologia e criatividade para uma abordagem multidisciplinar no ensino.",
     "paragraph2": "Trabalho com tecnologias como React, Node.js, Next.js, Astro, Express para APIs REST, MongoDB/PostgreSQL, TypeScript e TailwindCSS, com flexibilidade para adaptar ferramentas conforme as necessidades do projeto.",
@@ -28,7 +28,7 @@
   "skills": {
     "title": "Minhas",
     "titleHighlight": "Habilidades",
-    "subtitle": "Principais tecnologias e ferramentas que domino",
+    "subtitle": "Principais tecnologias e ferramentas que utilizo no desenvolvimento",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -58,7 +58,7 @@
   "projects": {
     "title": "Meus",
     "titleHighlight": "Projetos",
-    "subtitle": "Confira alguns dos meus projetos mais recentes que demonstram minhas habilidades e meus conhecimentos.",
+    "subtitle": "Confira alguns dos meus projetos mais recentes que demonstram minhas habilidades e meus conhecimentos",
     "filters": {
       "all": "Todos",
       "web": "Web",
@@ -76,7 +76,7 @@
   "experience": {
     "title": "Minhas",
     "titleHighlight": "Experiências",
-    "subtitle": "Experiências profissionais e formação acadêmica que moldaram minha carreira",
+    "subtitle": "Experiências profissionais e formação acadêmica",
     "professionalExperience": "Experiência Profissional",
     "education": "Formação",
     "current": "Atual",
@@ -182,7 +182,7 @@
   },
   "contact": {
     "title": "Vamos",
-    "titleHighlight": "conversar",
+    "titleHighlight": "Conversar",
     "subtitle": "Tem um projeto em mente? Entre em contato!",
     "whatsapp": "Chamar no WhatsApp",
     "whatsappMobile": "WhatsApp",

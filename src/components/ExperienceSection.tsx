@@ -210,7 +210,7 @@ const ExperienceSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -221,7 +221,7 @@ const ExperienceSection = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
       },
     },
   };
@@ -232,7 +232,7 @@ const ExperienceSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -252,7 +252,7 @@ const ExperienceSection = () => {
             <motion.h3
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
               <Building className="mr-3 text-emerald-400" size={28} />
@@ -269,7 +269,7 @@ const ExperienceSection = () => {
               <motion.div
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={inView ? { opacity: 1, scaleY: 1 } : {}}
-                transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }}
                 className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-sky-500 origin-top"
               ></motion.div>
 
@@ -283,7 +283,7 @@ const ExperienceSection = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.5 + exp.id * 0.1 }}
+                    transition={{ duration: 0.2, delay: 0.3 + exp.id * 0.05 }}
                     className={`absolute left-6 w-4 h-4 rounded-full border-4 ${
                       exp.current
                         ? "bg-emerald-500 border-emerald-300 shadow-lg shadow-emerald-500/50"
@@ -292,7 +292,7 @@ const ExperienceSection = () => {
                   ></motion.div>
 
                   {/* Content */}
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-200">
                     <div className="flex flex-wrap items-start justify-between mb-4">
                       <div>
                         <h4 className="text-xl font-bold text-white mb-1">
@@ -349,7 +349,7 @@ const ExperienceSection = () => {
             <motion.h3
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
               <GraduationCap className="mr-3 text-sky-400" size={28} />
@@ -359,13 +359,13 @@ const ExperienceSection = () => {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
               className="space-y-6"
             >
               {education.map((edu) => (
                 <div
                   key={edu.id}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-200"
                 >
                   <h4 className="text-lg font-bold text-white mb-2">
                     {edu.title}
