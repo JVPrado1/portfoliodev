@@ -44,7 +44,7 @@ const AboutSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center md:mb-12 mb-10"
+          className="text-center md:mb-12 mb-8"
         >
           <h2 className="text-4xl font-bold md:text-5xl">
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
@@ -82,6 +82,11 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
+          {/* Mobile Separator */}
+          <div className="lg:hidden">
+            <hr className="border-white/20 my-4" />
+          </div>
+
           {/* Technologies */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -89,7 +94,7 @@ const AboutSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-white text-left">
+            <h3 className="text-2xl font-bold text-white md:text-left text-center">
               {t("about.mainTechnologies")}
             </h3>
 
