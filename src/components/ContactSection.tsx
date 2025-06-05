@@ -17,20 +17,6 @@ const ContactSection = () => {
       href: "mailto:jv_prado@outlook.com",
       color: "from-emerald-500 to-emerald-600",
     },
-    {
-      icon: FaWhatsapp,
-      title: "WhatsApp",
-      value: "(14) 99729-5849",
-      href: "https://wa.me/5514997295849",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      icon: MapPin,
-      title: "Localização",
-      value: "Jaú, SP - Brasil",
-      href: "https://maps.google.com/?q=Jaú,SP",
-      color: "from-sky-500 to-sky-600",
-    },
   ];
 
   const socialLinks = [
@@ -70,9 +56,7 @@ const ContactSection = () => {
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Tem um projeto em mente? Gostaria de colaborar? Ou apenas quer dizer
-            olá? Estou sempre aberto para novas oportunidades e conversas
-            interessantes!
+            Tem um projeto em mente? Entre em contato!
           </p>
         </motion.div>
 
@@ -84,56 +68,43 @@ const ContactSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="max-w-2xl w-full"
           >
-            <div className="space-y-6 mb-8">
-              {/* Email - linha completa */}
-              {(() => {
-                const emailInfo = contactInfo[0];
-                const EmailIcon = emailInfo.icon;
-                return (
-                  <a
-                    href={emailInfo.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 group cursor-pointer"
-                  >
-                    <div
-                      className={`p-3 bg-gradient-to-r ${emailInfo.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}
-                    >
-                      <EmailIcon className="text-white" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold">
-                        {emailInfo.title}
-                      </h4>
-                      <p className="text-gray-300">{emailInfo.value}</p>
-                    </div>
-                  </a>
-                );
-              })()}
+            {/* Botões de Contato - WhatsApp e Email lado a lado */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mx-auto sm:max-w-none"
+            >
+              {/* WhatsApp Button */}
+              <a
+                href="https://wa.me/5514997295849"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-[60vw] sm:w-auto flex items-center justify-center px-8 py-4 bg-[#25D366] text-white rounded-full font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02] hover:bg-[#20c760] group"
+              >
+                <FaWhatsapp
+                  size={20}
+                  className="mr-3 group-hover:scale-110 transition-transform duration-200"
+                />
+                <span>
+                  <span className="hidden sm:inline">Chamar no </span>WhatsApp
+                </span>
+              </a>
 
-              {/* Localização e WhatsApp - mesma linha */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {contactInfo.slice(1).map((info, _) => (
-                  <a
-                    key={info.title}
-                    href={info.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 group cursor-pointer"
-                  >
-                    <div
-                      className={`p-3 bg-gradient-to-r ${info.color} rounded-lg mr-4 group-hover:scale-110 transition-transform duration-200`}
-                    >
-                      <info.icon className="text-white" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold">{info.title}</h4>
-                      <p className="text-gray-300">{info.value}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+              {/* Email Button */}
+              <a
+                href="mailto:jv_prado@outlook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-[60vw] sm:w-auto flex items-center justify-center px-8 py-4 bg-gradient-to-r from-sky-500 to-blue-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02] group"
+              >
+                <Mail
+                  size={20}
+                  className="mr-3 group-hover:scale-110 transition-transform duration-200"
+                />
+                <span>Enviar Email</span>
+              </a>
+            </motion.div>
 
             {/* Social Links */}
             <motion.div
