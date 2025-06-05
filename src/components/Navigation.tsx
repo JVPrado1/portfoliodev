@@ -21,7 +21,7 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 30);
+      setIsScrolled(scrollPosition > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,7 +58,7 @@ const Navigation = () => {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 ${
+        className={` fixed inset-x-0 top-0 z-50 ${
           isScrolled
             ? "bg-black/80 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"

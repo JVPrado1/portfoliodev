@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="h-[100dvh] w-full flex items-center justify-center relative overflow-hidden pt-16"
+      className=" md:h-screen  h-auto w-full flex items-center justify-center relative overflow-hidden md:pt-16 pt-20 md:pb-0"
       style={{
         backgroundImage: "url('/teste.jpg')",
         backgroundSize: "cover",
@@ -97,7 +97,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-center space-x-6 md:mb-16 mb-0"
+            className="flex justify-center space-x-6 md:mb-16 mb-16"
           >
             {[
               {
@@ -133,7 +133,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className=" flex-col items-center  hidden md:flex"
+            className=" flex-col items-center  hidden md:flex "
           >
             <div className="p-2 rounded-full border-2 border-white/30 animate-bounce">
               <ArrowDown className="text-white" size={20} />
