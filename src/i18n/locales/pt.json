@@ -1,0 +1,191 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Stack",
+    "projects": "Projetos",
+    "experience": "Experiências",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, me chamo",
+    "name": "João!",
+    "subtitle1": "Professor que virou dev (ou dev que nunca deixou de ser professor).",
+    "subtitle2": "Transformo ideias em código.",
+    "viewProjects": "Ver Meus Projetos",
+    "downloadCV": "Baixar CV"
+  },
+  "about": {
+    "title": "Quem sou eu?",
+    "briefTitle": "Breve resumo",
+    "paragraph1": "Desenvolvedor Full Stack e professor com experiência em Robótica, Educação Digital, Música e Arte, unindo tecnologia e criatividade para uma abordagem multidisciplinar no ensino.",
+    "paragraph2": "Trabalho com tecnologias como React, Node.js, Next.js, Astro, Express para APIs REST, MongoDB/PostgreSQL, TypeScript e TailwindCSS, com flexibilidade para adaptar ferramentas conforme as necessidades do projeto.",
+    "paragraph3": "Tenho conhecimento de versionamento com Git, uso de containers com Docker, design e prototipação com Figma, e comunicação eficiente em equipes via Slack.",
+    "downloadCV": "Baixar CV",
+    "mainTechnologies": "Principais Tecnologias"
+  },
+  "skills": {
+    "title": "Minhas",
+    "titleHighlight": "Habilidades",
+    "subtitle": "Principais tecnologias e ferramentas que domino",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Cloud",
+      "mobile": "Mobile",
+      "tools": "Ferramentas & Tech"
+    },
+    "swipeInstruction": "Deslize para navegar",
+    "otherSkills": "Outras competências",
+    "softSkills": [
+      "Comunicação",
+      "Trabalho em Equipe",
+      "Resolução de Problemas",
+      "Criatividade",
+      "Adaptabilidade",
+      "Pensamento Crítico",
+      "Gestão de Tempo",
+      "Aprendizado Contínuo",
+      "Empatia",
+      "Organização",
+      "Proatividade",
+      "Clean Code",
+      "SEO"
+    ]
+  },
+  "projects": {
+    "title": "Meus",
+    "titleHighlight": "Projetos",
+    "subtitle": "Confira alguns dos meus projetos mais recentes que demonstram minhas habilidades e meus conhecimentos.",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "mobile": "Mobile",
+      "logic": "Lógica"
+    },
+    "access": "Acessar",
+    "code": "Código",
+    "featured": "Destaque",
+    "inDevelopment": "Em Desenvolvimento",
+    "swipeInstruction": "Deslize para navegar",
+    "viewMoreGithub": "Ver mais no GitHub",
+    "noProjects": "Nenhum projeto encontrado para este filtro."
+  },
+  "experience": {
+    "title": "Minhas",
+    "titleHighlight": "Experiências",
+    "subtitle": "Experiências profissionais e formação acadêmica que moldaram minha carreira",
+    "professionalExperience": "Experiência Profissional",
+    "education": "Formação",
+    "current": "Atual",
+    "freelancer": "Freelancer",
+    "fullTime": "Tempo Integral",
+    "completed": "Concluído",
+    "coursesAndCertifications": "Cursos e Certificações",
+    "languages": "Idiomas",
+    "native": "Nativo",
+    "advanced": "Avançado",
+    "experiences": {
+      "1": {
+        "title": "Desenvolvedor Full Stack Freelancer",
+        "company": "nectho.",
+        "location": "Jaú, SP",
+        "period": "Ago 2024 - Presente",
+        "type": "Freelancer",
+        "description": "Desenvolvo aplicações web full stack, criação de sites institucionais, landing pages e sistemas personalizados para diversos clientes.",
+        "achievements": [
+          "Desenvolveu site institucional para Conservatório Jauense de Música",
+          "Criou aplicação Track by Track para avaliação musical",
+          "Implementou soluções responsivas e modernas",
+          "Trabalhou com React, TypeScript, Astro e Node.js"
+        ]
+      },
+      "2": {
+        "title": "Professor de Teoria Musical e Musicalização Infantil",
+        "company": "Conservatório Jauense de Música",
+        "location": "Jaú, SP",
+        "period": "Fev 2024 - Presente",
+        "type": "Tempo Integral",
+        "description": "Leciono Teoria Musical para o Curso Técnico e Musicalização Infantil, sempre buscando novas formas de ensinar e aprender.",
+        "achievements": [
+          "Desenvolveu currículo de teoria musical atualizado",
+          "Aplicou tecnologia digital no ensino musical",
+          "Trabalhou com diferentes faixas etárias",
+          "Criou materiais didáticos personalizados"
+        ]
+      },
+      "3": {
+        "title": "Professor de Guitarra e Violão",
+        "company": "Conservatório Jauense de Música",
+        "location": "Jaú, SP",
+        "period": "Ago 2021 - Presente",
+        "type": "Tempo Integral",
+        "description": "Ensino de guitarra e violão para alunos de diversos níveis, desde iniciantes até avançados, com foco em técnica e musicalidade.",
+        "achievements": [
+          "Formou mais de 50 alunos em diferentes estilos musicais",
+          "Desenvolveu metodologia própria de ensino",
+          "Organizou recitais e apresentações dos alunos",
+          "Integrou tecnologia digital no ensino musical"
+        ]
+      },
+      "4": {
+        "title": "Professor Multidisciplinar",
+        "company": "Colégio Preve Objetivo",
+        "location": "Jaú e Agudos, SP",
+        "period": "Fev 2022 - Ago 2024",
+        "type": "Tempo Integral",
+        "description": "Lecionei disciplinas de Robótica, Arte, Música e Educação Digital, integrando tecnologia com a prática pedagógica.",
+        "achievements": [
+          "Desenvolveu projetos de robótica educacional",
+          "Integrou programação com arte e música",
+          "Preparou alunos para competições de robótica",
+          "Criou metodologias interdisciplinares inovadoras"
+        ]
+      },
+      "5": {
+        "title": "Marketing e Auxiliar Administrativo TI",
+        "company": "Colégio Preve Objetivo",
+        "location": "Jaú, Agudos e Bauru, SP",
+        "period": "Jan 2021 - Ago 2024",
+        "type": "Tempo Integral",
+        "description": "Gestão de marketing digital e suporte administrativo voltado para o setor de tecnologia.",
+        "achievements": [
+          "Gerenciou redes sociais das 3 unidades",
+          "Implementou sistemas de gestão escolar",
+          "Desenvolveu campanhas de marketing digital",
+          "Otimizou processos administrativos com tecnologia"
+        ]
+      }
+    },
+    "educationData": {
+      "1": {
+        "title": "Tecnólogo em Sistemas para Internet",
+        "institution": "FATEC Jahu",
+        "period": "2014 - 2016",
+        "description": "Formação técnica em desenvolvimento web, programação e sistemas para internet."
+      },
+      "2": {
+        "title": "Licenciatura em Artes",
+        "institution": "UNISAGRADO",
+        "period": "2019 - 2022",
+        "description": "Formação em licenciatura com foco em artes visuais, música e pedagogia artística."
+      },
+      "3": {
+        "title": "Música – Instrumento de Cordas: Guitarra",
+        "institution": "Conservatório Jauense de Música",
+        "period": "2019 - 2022",
+        "description": "Formação técnica especializada em guitarra, teoria musical e performance."
+      }
+    }
+  },
+  "contact": {
+    "title": "Vamos",
+    "titleHighlight": "conversar?",
+    "subtitle": "Tem um projeto em mente? Entre em contato!",
+    "whatsapp": "Chamar no WhatsApp",
+    "whatsappMobile": "WhatsApp",
+    "sendEmail": "Enviar Email",
+    "footer": "© 2025 Desenvolvido por João Victor Prado."
+  }
+}

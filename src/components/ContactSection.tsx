@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  const { t } = useTranslation();
 
   const socialLinks = [
     {
@@ -40,13 +42,13 @@ const ContactSection = () => {
           className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Vamos{" "}
+            {t("contact.title")}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              conversar?
+              {t("contact.titleHighlight")}
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Tem um projeto em mente? Entre em contato!
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -77,7 +79,12 @@ const ContactSection = () => {
                   className="mr-3 group-hover:scale-110 transition-transform duration-200"
                 />
                 <span>
-                  <span className="hidden sm:inline">Chamar no </span>WhatsApp
+                  <span className="hidden sm:inline">
+                    {t("contact.whatsapp")}
+                  </span>
+                  <span className="sm:hidden">
+                    {t("contact.whatsappMobile")}
+                  </span>
                 </span>
               </a>
 
@@ -92,7 +99,7 @@ const ContactSection = () => {
                   size={20}
                   className="mr-3 group-hover:scale-110 transition-transform duration-200"
                 />
-                <span>Enviar Email</span>
+                <span>{t("contact.sendEmail")}</span>
               </a>
             </motion.div>
 
@@ -127,9 +134,7 @@ const ContactSection = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-16 pt-8 border-t flex justify-center items-center border-white/10"
         >
-          <p className="text-gray-400 mb-4">
-            © 2025 Desenvolvido por João Victor Prado.
-          </p>
+          <p className="text-gray-400 mb-4">{t("contact.footer")}</p>
         </motion.div>
       </div>
     </section>

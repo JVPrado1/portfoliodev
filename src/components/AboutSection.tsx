@@ -9,12 +9,14 @@ import {
   SiTailwindcss,
   SiExpress,
 } from "react-icons/si";
+import { useTranslation } from "react-i18next";
 
 const AboutSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  const { t } = useTranslation();
 
   const technologies = [
     { name: "React", icon: FaReact, color: "from-sky-400 to-cyan-400" },
@@ -44,12 +46,8 @@ const AboutSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center md:mb-12 mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white md:mb-6 mb-0">
-            Quem sou{" "}
-            <span className="bg-gradient-to-r  from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              eu
-            </span>
-            ?
+          <h2 className="text-4xl md:text-5xl font-bold md:mb-6 mb-0 bg-gradient-to-r from-gray-50 via-emerald-200 to-sky-200 bg-clip-text text-transparent">
+            {t("about.title")}
           </h2>
         </motion.div>
 
@@ -62,25 +60,12 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold text-white text-center lg:text-left hidden lg:block">
-              Breve resumo
+              {t("about.briefTitle")}
             </h3>
             <div className="space-y-4 text-gray-300 text-lg">
-              <p>
-                Desenvolvedor Full Stack e professor com experiência em
-                Robótica, Educação Digital, Música e Arte, unindo tecnologia e
-                criatividade para uma abordagem multidisciplinar no ensino.
-              </p>
-              <p>
-                Trabalho com tecnologias como React, Node.js, Next.js, Astro,
-                Express para APIs REST, MongoDB/PostgreSQL, TypeScript e
-                TailwindCSS, com flexibilidade para adaptar ferramentas conforme
-                as necessidades do projeto.
-              </p>
-              <p>
-                Tenho conhecimento de versionamento com Git, uso de containers
-                com Docker, design e prototipação com Figma, e comunicação
-                eficiente em equipes via Slack.
-              </p>
+              <p>{t("about.paragraph1")}</p>
+              <p>{t("about.paragraph2")}</p>
+              <p>{t("about.paragraph3")}</p>
             </div>
 
             <div className="text-center lg:text-left mt-8 lg:mt-0 lg:mb-0 mb-5">
@@ -89,7 +74,7 @@ const AboutSection = () => {
                 download="Currículo - João Victor Prado - Desenvolvedor Full Stack.pdf"
                 className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 inline-block text-center cursor-pointer hover:scale-[1.02]"
               >
-                Baixar CV
+                {t("about.downloadCV")}
               </a>
             </div>
           </motion.div>
@@ -102,7 +87,7 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold text-white text-left">
-              Principais Tecnologias
+              {t("about.mainTechnologies")}
             </h3>
 
             {/* Desktop Grid */}

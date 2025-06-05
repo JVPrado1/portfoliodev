@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="inicio"
@@ -44,11 +47,10 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-7xl font-bold text-white mb-4"
           >
-            Olá, me chamo{" "}
+            {t("hero.greeting")}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              João
+              {t("hero.name")}
             </span>
-            !
           </motion.h1>
 
           {/* Subtitle */}
@@ -58,11 +60,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg md:text-2xl text-white md:mb-12 mb-8 max-w-3xl mx-auto"
           >
-            <p className="mb-1">
-              Professor que virou dev (ou dev que nunca deixou de ser
-              professor).
-            </p>
-            <p>Transformo ideias em código.</p>
+            <p className="mb-1">{t("hero.subtitle1")}</p>
+            <p>{t("hero.subtitle2")}</p>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -80,7 +79,7 @@ const HeroSection = () => {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <span>Ver Meus Projetos</span>
+              <span>{t("hero.viewProjects")}</span>
             </button>
             <a
               href="/curriculo-joao.pdf"
@@ -88,7 +87,7 @@ const HeroSection = () => {
               className="w-full max-w-[60vw] sm:w-auto px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-200 text-center cursor-pointer  flex items-center justify-center space-x-2 hover:scale-[1.02]"
             >
               <Download size={20} />
-              <span>Baixar CV</span>
+              <span>{t("hero.downloadCV")}</span>
             </a>
           </motion.div>
 

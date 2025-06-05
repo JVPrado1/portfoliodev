@@ -10,10 +10,13 @@ import {
   Mail,
   Monitor,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitch from "./LanguageSwitch";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +43,16 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { href: "#inicio", label: "Início", icon: Home },
-    { href: "#sobre", label: "Sobre", icon: User },
-    { href: "#habilidades", label: "Stack", icon: Code },
-    { href: "#projetos", label: "Projetos", icon: Monitor },
-    { href: "#experiencia", label: "Experiências", icon: Briefcase },
-    { href: "#contato", label: "Contato", icon: Mail },
+    { href: "#inicio", label: t("navigation.home"), icon: Home },
+    { href: "#sobre", label: t("navigation.about"), icon: User },
+    { href: "#habilidades", label: t("navigation.skills"), icon: Code },
+    { href: "#projetos", label: t("navigation.projects"), icon: Monitor },
+    {
+      href: "#experiencia",
+      label: t("navigation.experience"),
+      icon: Briefcase,
+    },
+    { href: "#contato", label: t("navigation.contact"), icon: Mail },
   ];
 
   return (
@@ -73,7 +80,7 @@ const Navigation = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-2">
+            <div className="hidden md:flex space-x-2 items-center">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.href}
@@ -92,10 +99,20 @@ const Navigation = () => {
                   </span>
                 </motion.button>
               ))}
+
+              {/* Language Switch */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+              >
+                <LanguageSwitch />
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center space-x-2">
+              <LanguageSwitch />
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-white p-2 cursor-pointer relative z-[60]"

@@ -9,6 +9,7 @@ import {
   Globe,
   Brain,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ProjectsSection = () => {
   const [ref, inView] = useInView({
@@ -21,13 +22,44 @@ const ProjectsSection = () => {
   const carouselRef = useRef(null);
   const startX = useRef(0);
   const isDragging = useRef(false);
+  const { t, i18n } = useTranslation();
 
+  // Função para traduzir descrições dos projetos
+  const getProjectDescription = (projectId: number): string => {
+    const descriptions: {
+      pt: { [key: number]: string };
+      en: { [key: number]: string };
+    } = {
+      pt: {
+        1: "O projeto permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.",
+        2: "Landing page desenvolvida para a banda Plano Marshall, desenvolvida com Astro, TypeScript e Tailwind CSS.",
+        3: "Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.",
+        4: "Aplicativo e webapp para professores particulares gerenciarem alunos, horários, pagamentos e rendimentos de forma integrada e simplificada.",
+        5: "Estudo de landing page responsiva utilizando HTML e CSS puro.",
+        6: "Jogo clássico de pedra, papel e tesoura desenvolvido com HTML, CSS e JavaScript puro. Implementa lógica de pontuação, animações suaves e design responsivo como projeto prático do currículo do Odin Project.",
+        7: "Projeto Scratch desenvolvido como parte do curso CS50x de Harvard, um curso de introdução à ciência da computação com foco em lógica e programação.",
+      },
+      en: {
+        1: "The project allows users to rate songs individually, calculate an average for the album, record listening history, and share opinions with the community.",
+        2: "Landing page developed for Plano Marshall band, built with Astro, TypeScript and Tailwind CSS.",
+        3: "Institutional website developed for Conservatório Jauense de Música, presenting information about courses, teachers and musical events.",
+        4: "App and webapp for private teachers to manage students, schedules, payments and earnings in an integrated and simplified way.",
+        5: "Responsive landing page study using pure HTML and CSS.",
+        6: "Classic rock, paper, scissors game developed with pure HTML, CSS and JavaScript. Implements scoring logic, smooth animations and responsive design as a practical project from The Odin Project curriculum.",
+        7: "Scratch project developed as part of Harvard's CS50x course, an introduction to computer science course focused on logic and programming.",
+      },
+    };
+
+    const currentLang = i18n.language as "pt" | "en";
+    return descriptions[currentLang]?.[projectId] || descriptions.pt[projectId];
+  };
+
+  // Seus projetos originais (sem mudanças!)
   const projects = [
     {
       id: 1,
       title: "Track by Track",
-      description:
-        "O projeto permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.",
+      description: getProjectDescription(1),
       image: "trackbytrack.webp",
       category: "web",
       technologies: [
@@ -45,8 +77,7 @@ const ProjectsSection = () => {
     {
       id: 2,
       title: "Banda Plano Marshall",
-      description:
-        "Landing page desenvolvida para a banda Plano Marshall, desenvolvida com Astro, TypeScript e Tailwind CSS.",
+      description: getProjectDescription(2),
       image: "plano-marshall.webp",
       category: "web",
       technologies: ["Astro", "TypeScript", "Tailwind CSS"],
@@ -57,8 +88,7 @@ const ProjectsSection = () => {
     {
       id: 3,
       title: "Conservatório Jauense de Música",
-      description:
-        "Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.",
+      description: getProjectDescription(3),
       image: "conservatorio.webp",
       category: "web",
       technologies: ["Astro", "TypeScript", "Tailwind CSS"],
@@ -69,8 +99,7 @@ const ProjectsSection = () => {
     {
       id: 4,
       title: "Profi",
-      description:
-        "Aplicativo e webapp para professores particulares gerenciarem alunos, horários, pagamentos e rendimentos de forma integrada e simplificada.",
+      description: getProjectDescription(4),
       image: "profi.webp",
       category: "web",
       technologies: [
@@ -88,8 +117,7 @@ const ProjectsSection = () => {
     {
       id: 5,
       title: "uTeach",
-      description:
-        "Estudo de landing page responsiva utilizando HTML e CSS puro.",
+      description: getProjectDescription(5),
       image: "uteach.webp",
       category: "web",
       technologies: ["HTML", "CSS"],
@@ -100,8 +128,7 @@ const ProjectsSection = () => {
     {
       id: 6,
       title: "Pedra, papel e tesoura",
-      description:
-        "Jogo clássico de pedra, papel e tesoura desenvolvido com HTML, CSS e JavaScript puro. Implementa lógica de pontuação, animações suaves e design responsivo como projeto prático do currículo do Odin Project.",
+      description: getProjectDescription(6),
       image: "odin.webp",
       category: "logica",
       technologies: ["HTML", "CSS", "JavaScript"],
@@ -112,10 +139,8 @@ const ProjectsSection = () => {
     {
       id: 7,
       title: "Projeto Scratch - CS50x",
-      description:
-        "Projeto Scratch desenvolvido como parte do curso CS50x de Harvard, um curso de introdução à ciência da computação com foco em lógica e programação.",
+      description: getProjectDescription(7),
       image: "scratch.webp",
-
       category: "logica",
       technologies: ["Scratch"],
       github: "https://github.com",
@@ -125,10 +150,10 @@ const ProjectsSection = () => {
   ];
 
   const filters = [
-    { id: "todos", label: "Todos", icon: Globe },
-    { id: "web", label: "Web", icon: Code },
-    { id: "mobile", label: "Mobile", icon: Smartphone },
-    { id: "logica", label: "Lógica", icon: Brain },
+    { id: "todos", label: t("projects.filters.all"), icon: Globe },
+    { id: "web", label: t("projects.filters.web"), icon: Code },
+    { id: "mobile", label: t("projects.filters.mobile"), icon: Smartphone },
+    { id: "logica", label: t("projects.filters.logic"), icon: Brain },
   ];
 
   const filteredProjects =
@@ -218,14 +243,13 @@ const ProjectsSection = () => {
           className="text-center md:mb-16 mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Meus{" "}
+            {t("projects.title")}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              Projetos
+              {t("projects.titleHighlight")}
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Confira alguns dos meus projetos mais recentes que demonstram minhas
-            habilidades e meus conhecimentos.
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 
@@ -275,7 +299,7 @@ const ProjectsSection = () => {
                 />
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    Destaque
+                    {t("projects.featured")}
                   </div>
                 )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center space-x-4">
@@ -294,7 +318,7 @@ const ProjectsSection = () => {
                       className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                     >
                       <ExternalLink size={16} />
-                      <span>Acessar</span>
+                      <span>{t("projects.access")}</span>
                     </a>
                   )}
                   {project.github !== "https://github.com" && (
@@ -316,7 +340,7 @@ const ProjectsSection = () => {
                 {project.status && (
                   <div className="mb-3">
                     <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs font-semibold">
-                      Em Desenvolvimento
+                      {t("projects.inDevelopment")}
                     </span>
                   </div>
                 )}
@@ -359,7 +383,7 @@ const ProjectsSection = () => {
                       className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                     >
                       <ExternalLink size={16} />
-                      <span>Acessar</span>
+                      <span>{t("projects.access")}</span>
                     </a>
                   )}
                   {project.github !== "https://github.com" && (
@@ -370,7 +394,7 @@ const ProjectsSection = () => {
                       className="flex items-center space-x-2 text-sky-400 hover:text-sky-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                     >
                       <Github size={16} />
-                      <span>Código</span>
+                      <span>{t("projects.code")}</span>
                     </a>
                   )}
                 </div>
@@ -408,7 +432,7 @@ const ProjectsSection = () => {
                           />
                           {project.featured && (
                             <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                              Destaque
+                              {t("projects.featured")}
                             </div>
                           )}
                         </div>
@@ -419,7 +443,7 @@ const ProjectsSection = () => {
                           {project.status && (
                             <div className="mb-3">
                               <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs font-semibold">
-                                Em Desenvolvimento
+                                {t("projects.inDevelopment")}
                               </span>
                             </div>
                           )}
@@ -462,7 +486,7 @@ const ProjectsSection = () => {
                                 className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                               >
                                 <ExternalLink size={16} />
-                                <span>Acessar</span>
+                                <span>{t("projects.access")}</span>
                               </a>
                             )}
                             {project.github !== "https://github.com" && (
@@ -473,7 +497,7 @@ const ProjectsSection = () => {
                                 className="flex items-center space-x-2 text-sky-400 hover:text-sky-300 transition-colors duration-200 font-medium text-sm cursor-pointer"
                               >
                                 <Github size={16} />
-                                <span>Código</span>
+                                <span>{t("projects.code")}</span>
                               </a>
                             )}
                           </div>
@@ -501,12 +525,12 @@ const ProjectsSection = () => {
 
               {/* Swipe Instruction */}
               <p className="text-center text-gray-400 text-sm mt-4">
-                Deslize para navegar
+                {t("projects.swipeInstruction")}
               </p>
             </div>
           ) : (
             <div className="text-center text-gray-400 py-8">
-              <p>Nenhum projeto encontrado para este filtro.</p>
+              <p>{t("projects.noProjects")}</p>
             </div>
           )}
         </div>
@@ -525,7 +549,7 @@ const ProjectsSection = () => {
             className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-emerald-600 to-sky-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 cursor-pointer hover:scale-[1.02]"
           >
             <Github size={20} />
-            <span>Ver mais no GitHub</span>
+            <span>{t("projects.viewMoreGithub")}</span>
           </a>
         </motion.div>
       </div>

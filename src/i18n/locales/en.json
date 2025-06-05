@@ -1,0 +1,191 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "João!",
+    "subtitle1": "Teacher turned developer (or developer who never stopped being a teacher).",
+    "subtitle2": "I transform ideas into code.",
+    "viewProjects": "View My Projects",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "Who am I?",
+    "briefTitle": "Brief summary",
+    "paragraph1": "Full Stack Developer and teacher with experience in Robotics, Digital Education, Music and Arts, combining technology and creativity for a multidisciplinary approach to teaching.",
+    "paragraph2": "I work with technologies like React, Node.js, Next.js, Astro, Express for REST APIs, MongoDB/PostgreSQL, TypeScript and TailwindCSS, with flexibility to adapt tools according to project needs.",
+    "paragraph3": "I have knowledge of versioning with Git, container usage with Docker, design and prototyping with Figma, and efficient team communication via Slack.",
+    "downloadCV": "Download CV",
+    "mainTechnologies": "Main Technologies"
+  },
+  "skills": {
+    "title": "My",
+    "titleHighlight": "Skills",
+    "subtitle": "Main technologies and tools I master",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Cloud",
+      "mobile": "Mobile",
+      "tools": "Tools & Tech"
+    },
+    "swipeInstruction": "Swipe to navigate",
+    "otherSkills": "Other Skills",
+    "softSkills": [
+      "Communication",
+      "Teamwork",
+      "Problem Solving",
+      "Creativity",
+      "Adaptability",
+      "Critical Thinking",
+      "Time Management",
+      "Continuous Learning",
+      "Empathy",
+      "Organization",
+      "Proactivity",
+      "Clean Code",
+      "SEO"
+    ]
+  },
+  "projects": {
+    "title": "My",
+    "titleHighlight": "Projects",
+    "subtitle": "Check out some of my most recent projects that demonstrate my skills and knowledge.",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "logic": "Logic"
+    },
+    "access": "View",
+    "code": "Code",
+    "featured": "Featured",
+    "inDevelopment": "In Development",
+    "swipeInstruction": "Swipe to navigate",
+    "viewMoreGithub": "View more on GitHub",
+    "noProjects": "No projects found for this filter."
+  },
+  "experience": {
+    "title": "My",
+    "titleHighlight": "Experience",
+    "subtitle": "Professional experiences and academic background that shaped my career",
+    "professionalExperience": "Professional Experience",
+    "education": "Education",
+    "current": "Current",
+    "freelancer": "Freelancer",
+    "fullTime": "Full Time",
+    "completed": "Completed",
+    "coursesAndCertifications": "Courses and Certifications",
+    "languages": "Languages",
+    "native": "Native",
+    "advanced": "Advanced",
+    "experiences": {
+      "1": {
+        "title": "Full Stack Developer Freelancer",
+        "company": "nectho.",
+        "location": "Jaú, SP",
+        "period": "Aug 2024 - Present",
+        "type": "Freelancer",
+        "description": "I develop full stack web applications, create institutional websites, landing pages and custom systems for various clients.",
+        "achievements": [
+          "Developed institutional website for Conservatório Jauense de Música",
+          "Created Track by Track application for music evaluation",
+          "Implemented responsive and modern solutions",
+          "Worked with React, TypeScript, Astro and Node.js"
+        ]
+      },
+      "2": {
+        "title": "Music Theory and Children's Music Education Teacher",
+        "company": "Conservatório Jauense de Música",
+        "location": "Jaú, SP",
+        "period": "Feb 2024 - Present",
+        "type": "Full Time",
+        "description": "I teach Music Theory for the Technical Course and Children's Music Education, always seeking new ways to teach and learn.",
+        "achievements": [
+          "Developed updated music theory curriculum",
+          "Applied digital technology in music education",
+          "Worked with different age groups",
+          "Created personalized teaching materials"
+        ]
+      },
+      "3": {
+        "title": "Guitar Teacher",
+        "company": "Conservatório Jauense de Música",
+        "location": "Jaú, SP",
+        "period": "Aug 2021 - Present",
+        "type": "Full Time",
+        "description": "Teaching guitar for students of various levels, from beginners to advanced, focusing on technique and musicality.",
+        "achievements": [
+          "Graduated over 50 students in different musical styles",
+          "Developed own teaching methodology",
+          "Organized student recitals and performances",
+          "Integrated digital technology in music education"
+        ]
+      },
+      "4": {
+        "title": "Multidisciplinary Teacher",
+        "company": "Colégio Preve Objetivo",
+        "location": "Jaú and Agudos, SP",
+        "period": "Feb 2022 - Aug 2024",
+        "type": "Full Time",
+        "description": "I taught Robotics, Art, Music and Digital Education subjects, integrating technology with pedagogical practice.",
+        "achievements": [
+          "Developed educational robotics projects",
+          "Integrated programming with art and music",
+          "Prepared students for robotics competitions",
+          "Created innovative interdisciplinary methodologies"
+        ]
+      },
+      "5": {
+        "title": "Marketing and IT Administrative Assistant",
+        "company": "Colégio Preve Objetivo",
+        "location": "Jaú, Agudos and Bauru, SP",
+        "period": "Jan 2021 - Aug 2024",
+        "type": "Full Time",
+        "description": "Digital marketing management and administrative support focused on the technology sector.",
+        "achievements": [
+          "Managed social media for 3 units",
+          "Implemented school management systems",
+          "Developed digital marketing campaigns",
+          "Optimized administrative processes with technology"
+        ]
+      }
+    },
+    "educationData": {
+      "1": {
+        "title": "Bachelor of Technology in Internet Systems",
+        "institution": "FATEC Jahu",
+        "period": "2014 - 2016",
+        "description": "Bachelor's degree focused on visual arts, music and artistic pedagogy."
+      },
+      "2": {
+        "title": "Bachelor's Degree in Arts",
+        "institution": "UNISAGRADO",
+        "period": "2019 - 2022",
+        "description": "Bachelor's degree focused on visual arts, music and artistic pedagogy."
+      },
+      "3": {
+        "title": "Music – String Instrument: Guitar",
+        "institution": "Conservatório Jauense de Música",
+        "period": "2019 - 2022",
+        "description": "Three-year technical program focused on guitar performance, music theory, and ensemble practice."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's",
+    "titleHighlight": "talk?",
+    "subtitle": "Have a project in mind? Get in touch!",
+    "whatsapp": "Chat on WhatsApp",
+    "whatsappMobile": "WhatsApp",
+    "sendEmail": "Send Email",
+    "footer": "© 2025 Developed by João Victor Prado."
+  }
+}

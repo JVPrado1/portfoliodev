@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Calendar, MapPin, Building, GraduationCap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ExperienceSection = () => {
   const [ref, inView] = useInView({
@@ -8,150 +9,202 @@ const ExperienceSection = () => {
     threshold: 0.1,
   });
 
-  const experiences = [
-    {
-      id: 1,
-      title: "Desenvolvedor Full Stack Freelancer",
-      company: "nectho.",
-      location: "Jaú, SP",
-      period: "Ago 2024 - Presente",
-      type: "Freelancer",
-      description:
-        "Desenvolvo aplicações web full stack, criação de sites institucionais, landing pages e sistemas personalizados para diversos clientes.",
-      achievements: [
-        "Desenvolveu site institucional para Conservatório Jauense de Música",
-        "Criou aplicação Track by Track para avaliação musical",
-        "Implementou soluções responsivas e modernas",
-        "Trabalhou com React, TypeScript, Astro e Node.js",
-      ],
-      technologies: [
-        "React",
-        "Next.js",
-        "Astro",
-        "Wordpress",
+  const { t, i18n } = useTranslation();
 
-        "Node.js",
-        "Tailwind CSS",
-        "Typescript",
-      ],
-      current: true,
-    },
-    {
-      id: 2,
-      title: "Professor de Teoria Musical e Musicalização Infantil",
-      company: "Conservatório Jauense de Música",
-      location: "Jaú, SP",
-      period: "Fev 2024 - Presente",
-      type: "Tempo Integral",
-      description:
-        "Leciono Teoria Musical para o Curso Técnico e Musicalização Infantil, sempre buscando novas formas de ensinar e aprender.",
-      achievements: [
-        "Desenvolveu currículo de teoria musical atualizado",
-        "Aplicou tecnologia digital no ensino musical",
-        "Trabalhou com diferentes faixas etárias",
-        "Criou materiais didáticos personalizados",
-      ],
-      technologies: ["Leitura Musical", "Rítmica"],
-      current: true,
-    },
-    {
-      id: 3,
-      title: "Professor de Guitarra e Violão",
-      company: "Conservatório Jauense de Música",
-      location: "Jaú, SP",
-      period: "Ago 2021 - Presente",
-      type: "Tempo Integral",
-      description:
-        "Ensino de guitarra e violão para alunos de diversos níveis, desde iniciantes até avançados, com foco em técnica e musicalidade.",
-      achievements: [
-        "Formou mais de 50 alunos em diferentes estilos musicais",
-        "Desenvolveu metodologia própria de ensino",
-        "Organizou recitais e apresentações dos alunos",
-        "Integrou tecnologia digital no ensino musical",
-      ],
-      technologies: ["Educação Musical", "Performance"],
-      current: true,
-    },
-    {
-      id: 4,
-      title: "Professor Multidisciplinar",
-      company: "Colégio Preve Objetivo",
-      location: "Jaú e Agudos, SP",
-      period: "Fev 2022 - Ago 2024",
-      type: "Tempo Integral",
-      description:
-        "Lecionei disciplinas de Robótica, Arte, Música e Educação Digital, integrando tecnologia com a prática pedagógica.",
-      achievements: [
-        "Desenvolveu projetos de robótica educacional",
-        "Integrou programação com arte e música",
-        "Preparou alunos para competições de robótica",
-        "Criou metodologias interdisciplinares inovadoras",
-      ],
-      technologies: [
-        "Python",
-        "Scratch",
-        "Lógica de Programação",
-        "Resolução de Problemas",
-        "Programação",
-        "Tecnologia Educacional",
-      ],
-      current: false,
-    },
-    {
-      id: 5,
-      title: "Marketing e Auxiliar Administrativo TI",
-      company: "Colégio Preve Objetivo",
-      location: "Jaú, Agudos e Bauru, SP",
-      period: "Jan 2021 - Ago 2024",
-      type: "Tempo Integral",
-      description:
-        "Gestão de marketing digital e suporte administrativo voltado para o setor de tecnologia.",
-      achievements: [
-        "Gerenciou redes sociais das 3 unidades",
-        "Implementou sistemas de gestão escolar",
-        "Desenvolveu campanhas de marketing digital",
-        "Otimizou processos administrativos com tecnologia",
-      ],
-      technologies: [
-        "Marketing Digital",
-        "Excel",
-        "Google Workspace",
-        "Redes Sociais",
-      ],
-      current: false,
-    },
-  ];
+  // Função para buscar dados de experiência traduzidos
+  const getExperienceData = (expId: number) => {
+    const currentLang = i18n.language as "pt" | "en";
+    const expData = t(`experience.experiences.${expId}`, {
+      returnObjects: true,
+    }) as any;
 
-  const education = [
-    {
-      id: 1,
-      title: "Tecnólogo em Sistemas para Internet",
-      institution: "FATEC Jahu",
-      period: "2014 - 2016",
-      description:
-        "Formação técnica em desenvolvimento web, programação e sistemas para internet.",
-      grade: "Concluído",
-    },
+    if (currentLang === "pt") {
+      // Dados originais em português mantidos
+      const originalData = [
+        {
+          id: 1,
+          title: "Desenvolvedor Full Stack Freelancer",
+          company: "nectho.",
+          location: "Jaú, SP",
+          period: "Ago 2024 - Presente",
+          type: "Freelancer",
+          description:
+            "Desenvolvo aplicações web full stack, criação de sites institucionais, landing pages e sistemas personalizados para diversos clientes.",
+          technologies: [
+            "React",
+            "Next.js",
+            "Astro",
+            "Wordpress",
+            "Node.js",
+            "Tailwind CSS",
+            "Typescript",
+          ],
+          current: true,
+        },
+        {
+          id: 2,
+          title: "Professor de Teoria Musical e Musicalização Infantil",
+          company: "Conservatório Jauense de Música",
+          location: "Jaú, SP",
+          period: "Fev 2024 - Presente",
+          type: "Tempo Integral",
+          description:
+            "Leciono Teoria Musical para o Curso Técnico e Musicalização Infantil, sempre buscando novas formas de ensinar e aprender.",
+          technologies: ["Leitura Musical", "Rítmica"],
+          current: true,
+        },
+        {
+          id: 3,
+          title: "Professor de Guitarra e Violão",
+          company: "Conservatório Jauense de Música",
+          location: "Jaú, SP",
+          period: "Ago 2021 - Presente",
+          type: "Tempo Integral",
+          description:
+            "Ensino de guitarra e violão para alunos de diversos níveis, desde iniciantes até avançados, com foco em técnica e musicalidade.",
+          technologies: ["Educação Musical", "Performance"],
+          current: true,
+        },
+        {
+          id: 4,
+          title: "Professor Multidisciplinar",
+          company: "Colégio Preve Objetivo",
+          location: "Jaú e Agudos, SP",
+          period: "Fev 2022 - Ago 2024",
+          type: "Tempo Integral",
+          description:
+            "Lecionei disciplinas de Robótica, Arte, Música e Educação Digital, integrando tecnologia com a prática pedagógica.",
+          technologies: [
+            "Python",
+            "Scratch",
+            "Lógica de Programação",
+            "Resolução de Problemas",
+            "Programação",
+            "Tecnologia Educacional",
+          ],
+          current: false,
+        },
+        {
+          id: 5,
+          title: "Marketing e Auxiliar Administrativo TI",
+          company: "Colégio Preve Objetivo",
+          location: "Jaú, Agudos e Bauru, SP",
+          period: "Jan 2021 - Ago 2024",
+          type: "Tempo Integral",
+          description:
+            "Gestão de marketing digital e suporte administrativo voltado para o setor de tecnologia.",
+          technologies: [
+            "Marketing Digital",
+            "Excel",
+            "Google Workspace",
+            "Redes Sociais",
+          ],
+          current: false,
+        },
+      ];
+      return originalData[expId - 1];
+    } else {
+      // Dados traduzidos para inglês
+      const translatedData = [
+        {
+          id: 1,
+          title: expData.title,
+          company: expData.company,
+          location: expData.location,
+          period: expData.period,
+          type: expData.type,
+          description: expData.description,
+          technologies: [
+            "React",
+            "Next.js",
+            "Astro",
+            "Wordpress",
+            "Node.js",
+            "Tailwind CSS",
+            "Typescript",
+          ],
+          current: true,
+        },
+        {
+          id: 2,
+          title: expData.title,
+          company: expData.company,
+          location: expData.location,
+          period: expData.period,
+          type: expData.type,
+          description: expData.description,
+          technologies: ["Music Reading", "Rhythm"],
+          current: true,
+        },
+        {
+          id: 3,
+          title: expData.title,
+          company: expData.company,
+          location: expData.location,
+          period: expData.period,
+          type: expData.type,
+          description: expData.description,
+          technologies: ["Music Education", "Performance"],
+          current: true,
+        },
+        {
+          id: 4,
+          title: expData.title,
+          company: expData.company,
+          location: expData.location,
+          period: expData.period,
+          type: expData.type,
+          description: expData.description,
+          technologies: [
+            "Python",
+            "Scratch",
+            "Programming Logic",
+            "Problem Solving",
+            "Programming",
+            "Educational Technology",
+          ],
+          current: false,
+        },
+        {
+          id: 5,
+          title: expData.title,
+          company: expData.company,
+          location: expData.location,
+          period: expData.period,
+          type: expData.type,
+          description: expData.description,
+          technologies: [
+            "Digital Marketing",
+            "Excel",
+            "Google Workspace",
+            "Social Media",
+          ],
+          current: false,
+        },
+      ];
+      return translatedData[expId - 1];
+    }
+  };
 
-    {
-      id: 2,
-      title: "Licenciatura em Artes",
-      institution: "UNISAGRADO",
-      period: "2019 - 2022",
-      description:
-        "Formação em licenciatura com foco em artes visuais, música e pedagogia artística.",
-      grade: "Concluído",
-    },
-    {
-      id: 3,
-      title: "Técnico em Guitarra",
-      institution: "Conservatório Jauense de Música",
-      period: "2019 - 2022",
-      description:
-        "Formação técnica especializada em guitarra, teoria musical e performance.",
-      grade: "Concluído",
-    },
-  ];
+  // Função para buscar dados de educação traduzidos
+  const getEducationData = (eduId: number) => {
+    const currentLang = i18n.language as "pt" | "en";
+    const eduData = t(`experience.educationData.${eduId}`, {
+      returnObjects: true,
+    }) as any;
+
+    return {
+      id: eduId,
+      title: eduData.title,
+      institution: eduData.institution,
+      period: eduData.period,
+      description: eduData.description,
+      grade: t("experience.completed"),
+    };
+  };
+
+  const experiences = [1, 2, 3, 4, 5].map((id) => getExperienceData(id));
+  const education = [1, 2, 3].map((id) => getEducationData(id));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -184,14 +237,13 @@ const ExperienceSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Minhas{" "}
+            {t("experience.title")}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              Experiências
+              {t("experience.titleHighlight")}
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Experiências profissionais e formação acadêmica que moldaram minha
-            carreira
+            {t("experience.subtitle")}
           </p>
         </motion.div>
 
@@ -205,7 +257,7 @@ const ExperienceSection = () => {
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
               <Building className="mr-3 text-emerald-400" size={28} />
-              Experiência Profissional
+              {t("experience.professionalExperience")}
             </motion.h3>
 
             <motion.div
@@ -253,7 +305,7 @@ const ExperienceSection = () => {
                       </div>
                       {exp.current && (
                         <span className="px-3 py-1 bg-gradient-to-r from-emerald-600 to-sky-600 text-white text-xs font-semibold rounded-full">
-                          Atual
+                          {t("experience.current")}
                         </span>
                       )}
                     </div>
@@ -302,7 +354,7 @@ const ExperienceSection = () => {
               className="text-2xl font-bold text-white mb-8 flex items-center"
             >
               <GraduationCap className="mr-3 text-sky-400" size={28} />
-              Formação
+              {t("experience.education")}
             </motion.h3>
 
             <motion.div
@@ -335,7 +387,7 @@ const ExperienceSection = () => {
               {/* Certifications */}
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-6">
                 <h4 className="text-lg font-bold text-white mb-4">
-                  Cursos e Certificações
+                  {t("experience.coursesAndCertifications")}
                 </h4>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between items-center">
@@ -380,18 +432,20 @@ const ExperienceSection = () => {
 
               {/* Languages */}
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <h4 className="text-lg font-bold text-white mb-4">Idiomas</h4>
+                <h4 className="text-lg font-bold text-white mb-4">
+                  {t("experience.languages")}
+                </h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Português</span>
                     <span className="px-3 py-1 bg-gradient-to-r from-emerald-600/20 to-emerald-600/20 border border-emerald-500/30 rounded-full text-xs text-white font-semibold">
-                      Nativo
+                      {t("experience.native")}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Inglês</span>
                     <span className="px-3 py-1 bg-gradient-to-r from-sky-600/20 to-sky-600/20 border border-sky-500/30 rounded-full text-xs text-white font-semibold">
-                      Avançado
+                      {t("experience.advanced")}
                     </span>
                   </div>
                 </div>

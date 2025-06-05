@@ -19,6 +19,8 @@ import {
   FaLinux,
   FaHtml5,
   FaJs,
+  FaAws,
+  FaGitAlt,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -37,9 +39,13 @@ import {
   SiVite,
   SiEslint,
   SiPrettier,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const SkillsSection = () => {
   const [ref, inView] = useInView({
@@ -51,6 +57,7 @@ const SkillsSection = () => {
   const carouselRef = useRef(null);
   const startX = useRef(0);
   const isDragging = useRef(false);
+  const { t } = useTranslation();
 
   // Mapeamento de skills para ícones específicos das tecnologias
   const skillIcons: { [key: string]: any } = {
@@ -59,22 +66,22 @@ const SkillsSection = () => {
     Astro: SiAstro,
     TypeScript: SiTypescript,
     "Tailwind CSS": SiTailwindcss,
-    "JavaScript ES6+": FaJs,
-    "HTML5 & CSS3": FaHtml5,
+    "JavaScript ES6+": SiJavascript,
+    "HTML5 & CSS3": SiHtml5,
     "Node.js": FaNodeJs,
     Python: FaPython,
     "Express.js": SiExpress,
     Fastify: SiFastify,
-    "API REST": TbApi,
-    "JWT & Auth": MdSecurity,
+    "API REST": SiExpress,
+    "JWT & Auth": SiExpress,
     MongoDB: SiMongodb,
     PostgreSQL: SiPostgresql,
     MySQL: SiMysql,
-    AWS: SiAmazonwebservices,
+    AWS: FaAws,
     Docker: FaDocker,
     Linux: FaLinux,
     "React Native": SiReact,
-    "Git/GitHub": SiGithub,
+    "Git/GitHub": FaGitAlt,
     Postman: SiPostman,
     Figma: FaFigma,
     Vite: SiVite,
@@ -84,7 +91,7 @@ const SkillsSection = () => {
 
   const skillCategories = [
     {
-      title: "Frontend",
+      title: t("skills.categories.frontend"),
       icon: Code,
       color: "from-emerald-500 to-emerald-600",
       skills: [
@@ -98,7 +105,7 @@ const SkillsSection = () => {
       ],
     },
     {
-      title: "Backend",
+      title: t("skills.categories.backend"),
       icon: Server,
       color: "from-sky-500 to-sky-600",
       skills: [
@@ -111,25 +118,25 @@ const SkillsSection = () => {
       ],
     },
     {
-      title: "Database",
+      title: t("skills.categories.database"),
       icon: Database,
       color: "from-green-500 to-emerald-500",
       skills: ["MongoDB", "PostgreSQL", "MySQL"],
     },
     {
-      title: "DevOps & Cloud",
+      title: t("skills.categories.devops"),
       icon: Cloud,
       color: "from-orange-500 to-red-500",
       skills: ["AWS", "Docker", "Linux"],
     },
     {
-      title: "Mobile",
+      title: t("skills.categories.mobile"),
       icon: Smartphone,
       color: "from-indigo-500 to-blue-500",
       skills: ["React Native"],
     },
     {
-      title: "Ferramentas & Tech",
+      title: t("skills.categories.tools"),
       icon: Wrench,
       color: "from-cyan-500 to-teal-500",
       skills: ["Git/GitHub", "Postman", "Figma", "Vite", "ESLint", "Prettier"],
@@ -207,13 +214,13 @@ const SkillsSection = () => {
           className="text-center md:mb-12 mb-8"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Minha{" "}
+            {t("skills.title")}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              Stack
+              {t("skills.titleHighlight")}
             </span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Tecnologias e ferramentas que compõem minha stack de desenvolvimento
+            {t("skills.subtitle")}
           </p>
         </motion.div>
 
@@ -393,7 +400,7 @@ const SkillsSection = () => {
 
           {/* Swipe Instruction */}
           <p className="text-center text-gray-400 text-sm mt-3">
-            Deslize para navegar
+            {t("skills.swipeInstruction")}
           </p>
         </div>
 
@@ -405,31 +412,19 @@ const SkillsSection = () => {
           className="mt-12"
         >
           <h3 className="text-2xl font-bold text-white mb-6 text-center">
-            Outras competências
+            {t("skills.otherSkills")}
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Comunicação",
-              "Trabalho em Equipe",
-              "Resolução de Problemas",
-              "Criatividade",
-              "Adaptabilidade",
-              "Pensamento Crítico",
-              "Gestão de Tempo",
-              "Aprendizado Contínuo",
-              "Empatia",
-              "Organização",
-              "Proatividade",
-              "Clean Code",
-              "SEO",
-            ].map((skill, _) => (
-              <div
-                key={skill}
-                className="px-3 py-1.5 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-emerald-500 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-sky-600/20 transition-all duration-200 text-sm"
-              >
-                {skill}
-              </div>
-            ))}
+            {(t("skills.softSkills", { returnObjects: true }) as string[]).map(
+              (skill: string, _: number) => (
+                <div
+                  key={skill}
+                  className="px-3 py-1.5 bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 rounded-full text-white font-medium hover:border-emerald-500 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-sky-600/20 transition-all duration-200 text-sm"
+                >
+                  {skill}
+                </div>
+              )
+            )}
           </div>
         </motion.div>
       </div>
