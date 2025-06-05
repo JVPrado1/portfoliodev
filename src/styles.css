@@ -3,9 +3,7 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-  height: 100%;
   height: 100vh;
-  height: 100dvh;
 }
 
 /* Prevent double-tap zoom on mobile */
@@ -47,9 +45,7 @@ html {
 body {
   overflow-x: hidden;
   margin: 0;
-  min-height: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: none;
   font-family:
@@ -122,12 +118,10 @@ code {
   animation: gradient-x 3s ease infinite;
 }
 
-/* Prevent mobile browser toolbar from affecting layout */
-@supports (height: 100dvh) {
-  html,
-  body {
-    height: 100dvh;
-  }
+/* Use static viewport height to prevent recalculation */
+html,
+body {
+  height: 100vh;
 }
 
 /* Ensure fixed elements stay fixed on mobile */
@@ -139,9 +133,7 @@ code {
 body {
   overflow-x: hidden;
   margin: 0;
-  min-height: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: none;
   font-family:
@@ -149,4 +141,12 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Chrome Mobile specific fixes - altura estática apenas */
+.chrome-mobile-fix {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
 }
