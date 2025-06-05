@@ -11,11 +11,16 @@ const LanguageSwitch = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center space-x-2 px-3 py-2 text-white/80 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 transform cursor-pointer group focus:outline-none focus:ring-0"
+      className="flex items-center space-x-2 px-3 py-2 text-white/80 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 active:bg-white/20 transform cursor-pointer group focus:outline-none focus:ring-0 select-none"
       style={{
         WebkitTapHighlightColor: "transparent",
         userSelect: "none",
+        WebkitUserSelect: "none",
+        MozUserSelect: "none",
+        touchAction: "manipulation",
       }}
+      onTouchStart={() => {}}
+      onTouchEnd={() => {}}
       title={
         i18n.language === "pt" ? "Switch to English" : "Mudar para Português"
       }
@@ -28,13 +33,18 @@ const LanguageSwitch = () => {
               : "bandeiras/brazil.svg"
           }
           alt={i18n.language === "pt" ? "USA Flag" : "Brazil Flag"}
-          width="20"
-          height="14"
-          className="rounded-sm shadow-md border border-white/20"
+          width="24"
+          height="16"
+          className="rounded-sm shadow-md border border-white/20 select-none"
           draggable={false}
+          style={{
+            pointerEvents: "none",
+            userSelect: "none",
+            WebkitUserSelect: "none",
+          }}
         />
       </div>
-      <span className="group-hover:text-emerald-400 transition-colors duration-200 font-medium">
+      <span className="group-hover:text-emerald-400 transition-colors duration-200 font-medium select-none">
         {i18n.language === "pt" ? "EN" : "PT"}
       </span>
     </button>
