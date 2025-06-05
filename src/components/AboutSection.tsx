@@ -46,9 +46,10 @@ const AboutSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white md:mb-6 mb-0">
             Quem sou{" "}
-            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              eu?
+            <span className="bg-gradient-to-r  from-emerald-400 to-sky-400 bg-clip-text text-transparent">
+              eu
             </span>
+            ?
           </h2>
         </motion.div>
 

@@ -46,8 +46,9 @@ const HeroSection = () => {
           >
             Olá, me chamo{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-              João!
+              João
             </span>
+            !
           </motion.h1>
 
           {/* Subtitle */}
