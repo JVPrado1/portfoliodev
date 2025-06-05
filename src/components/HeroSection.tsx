@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
@@ -109,9 +110,9 @@ const HeroSection = () => {
                 label: "LinkedIn",
               },
               {
-                icon: Mail,
-                href: "mailto:jv_prado@outlook.com",
-                label: "Email",
+                icon: FaWhatsapp,
+                href: "https://wa.me/5514997295849",
+                label: "WhatsApp",
               },
             ].map((social, index) => (
               <a

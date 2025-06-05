@@ -23,9 +23,9 @@ const ContactSection = () => {
       color: "hover:text-sky-400",
     },
     {
-      icon: Mail,
-      name: "Email",
-      href: "mailto:jv_prado@outlook.com",
+      icon: FaWhatsapp,
+      name: "WhatsApp",
+      href: "https://wa.me/5514997295849",
       color: "hover:text-green-400",
     },
   ];
