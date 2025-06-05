@@ -46,9 +46,13 @@ const ContactSection = () => {
             <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
               {t("contact.titleHighlight")}
             </span>
+            ?
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             {t("contact.subtitle")}
+          </p>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            {t("contact.subtitle2")}
           </p>
         </motion.div>
 

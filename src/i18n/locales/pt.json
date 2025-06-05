@@ -9,14 +9,15 @@
   },
   "hero": {
     "greeting": "Olá, me chamo",
-    "name": "João!",
+    "name": "João",
     "subtitle1": "Professor que virou dev (ou dev que nunca deixou de ser professor).",
     "subtitle2": "Transformo ideias em código.",
     "viewProjects": "Ver Meus Projetos",
     "downloadCV": "Baixar CV"
   },
   "about": {
-    "title": "Quem sou eu?",
+    "title": "Sobre",
+    "titleHighlight": "mim",
     "briefTitle": "Breve resumo",
     "paragraph1": "Desenvolvedor Full Stack e professor com experiência em Robótica, Educação Digital, Música e Arte, unindo tecnologia e criatividade para uma abordagem multidisciplinar no ensino.",
     "paragraph2": "Trabalho com tecnologias como React, Node.js, Next.js, Astro, Express para APIs REST, MongoDB/PostgreSQL, TypeScript e TailwindCSS, com flexibilidade para adaptar ferramentas conforme as necessidades do projeto.",
@@ -181,7 +182,7 @@
   },
   "contact": {
     "title": "Vamos",
-    "titleHighlight": "conversar?",
+    "titleHighlight": "conversar",
     "subtitle": "Tem um projeto em mente? Entre em contato!",
     "whatsapp": "Chamar no WhatsApp",
     "whatsappMobile": "WhatsApp",

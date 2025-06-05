@@ -9,14 +9,15 @@
   },
   "hero": {
     "greeting": "Hello, I'm",
-    "name": "João!",
+    "name": "João",
     "subtitle1": "Teacher turned developer (or developer who never stopped being a teacher).",
     "subtitle2": "I transform ideas into code.",
     "viewProjects": "View My Projects",
     "downloadCV": "Download CV"
   },
   "about": {
-    "title": "Who am I?",
+    "title": "About",
+    "titleHighlight": "me",
     "briefTitle": "Brief summary",
     "paragraph1": "Full Stack Developer and teacher with experience in Robotics, Digital Education, Music and Arts, combining technology and creativity for a multidisciplinary approach to teaching.",
     "paragraph2": "I work with technologies like React, Node.js, Next.js, Astro, Express for REST APIs, MongoDB/PostgreSQL, TypeScript and TailwindCSS, with flexibility to adapt tools according to project needs.",
@@ -181,7 +182,7 @@
   },
   "contact": {
     "title": "Let's",
-    "titleHighlight": "talk?",
+    "titleHighlight": "talk",
     "subtitle": "Have a project in mind? Get in touch!",
     "whatsapp": "Chat on WhatsApp",
     "whatsappMobile": "WhatsApp",

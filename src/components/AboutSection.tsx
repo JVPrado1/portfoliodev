@@ -46,8 +46,11 @@ const AboutSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center md:mb-12 mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold md:mb-6 mb-0 bg-gradient-to-r from-gray-50 via-emerald-200 to-sky-200 bg-clip-text text-transparent">
-            {t("about.title")}
+          <h2 className="text-4xl font-bold md:text-5xl">
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
+              {t("about.title")}
+            </span>{" "}
+            <span className="text-white">{t("about.titleHighlight")}</span>
           </h2>
         </motion.div>
 
