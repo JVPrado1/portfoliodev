@@ -56,8 +56,6 @@ const HeroSection = () => {
       }
     };
 
-    // Função removida - não precisamos de listener de scroll
-
     // Visual Viewport API específica para Chrome
     const handleVisualViewport = () => {
       if (window.visualViewport) {
