@@ -8,6 +8,8 @@ import {
   Cloud,
   Smartphone,
   Wrench,
+  Zap,
+  Shield,
 } from "lucide-react";
 // Ícones específicos das tecnologias
 import {
@@ -66,8 +68,8 @@ const SkillsSection = () => {
     Python: FaPython,
     "Express.js": SiExpress,
     Fastify: SiFastify,
-    "API REST": SiExpress,
-    "JWT & Auth": SiExpress,
+    "API REST": Zap,
+    "JWT & Auth": Shield,
     MongoDB: SiMongodb,
     PostgreSQL: SiPostgresql,
     MySQL: SiMysql,
